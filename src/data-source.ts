@@ -2,10 +2,12 @@ import path from "path";
 import "reflect-metadata";
 import { DataSourceOptions, DataSource } from "typeorm";
 import "dotenv/config";
+import { User } from "./entities/user.entity";
+import { InitialMigration1681114187718 } from "./migrations/1681114187718-InitialMigration";
 
 const DataSourceSettings = (): DataSourceOptions => {
-  const entities = [path.join(__dirname, "src/entities/**.{js,ts}")];
-  const migrations = [path.join(__dirname, "src/migrations/**.{js,ts}")];
+  const entities = [User];
+  const migrations = [InitialMigration1681114187718];
 
   const node_env = process.env.NODE_ENV;
 
