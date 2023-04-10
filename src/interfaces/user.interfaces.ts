@@ -9,3 +9,8 @@ export interface IUserRequest {
   isSeller: boolean;
   birthdate: Date;
 }
+
+export interface IUserLogin {
+  email: string;
+  password: string;
+}
