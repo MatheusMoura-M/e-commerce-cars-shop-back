@@ -3,11 +3,12 @@ import "reflect-metadata";
 import { DataSourceOptions, DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
-import { InitialMigration1681114187718 } from "./migrations/1681114187718-InitialMigration";
+import { Car } from "./entities/car.entity";
+import { InitialMigration1681117604717 } from "./migrations/1681117604717-InitialMigration";
 
 const DataSourceSettings = (): DataSourceOptions => {
-  const entities = [User];
-  const migrations = [InitialMigration1681114187718];
+  const entities = [User, Car];
+  const migrations = [InitialMigration1681117604717];
 
   const node_env = process.env.NODE_ENV;
 

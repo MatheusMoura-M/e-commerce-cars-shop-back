@@ -4,8 +4,10 @@ import {
   Column,
   BeforeUpdate,
   BeforeInsert,
+  OneToMany,
 } from "typeorm";
 import { hashSync } from "bcryptjs";
+import { Car } from "./car.entity";
 
 @Entity("users")
 export class User {
@@ -41,6 +43,9 @@ export class User {
 
   @Column()
   birthdate: Date;
+
+  @OneToMany(() => Car, (car) => car.user)
+  cars: Car[];
 
   @BeforeUpdate()
   @BeforeInsert()
