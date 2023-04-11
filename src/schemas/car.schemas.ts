@@ -1,8 +1,8 @@
 import * as yup from "yup";
-import { Schema } from "yup";
+import { SchemaOf } from "yup";
 import { ICarUpdate, ICarUpdateResponse } from "../interfaces/car.interfaces";
 
-export const carUpdateSerializer: Schema<ICarUpdate> = yup.object().shape({
+export const carUpdateSerializer: SchemaOf<ICarUpdate> = yup.object().shape({
   brand: yup.string().notRequired(),
   model: yup.string().notRequired(),
   year: yup.string().notRequired(),
@@ -17,7 +17,7 @@ export const carUpdateSerializer: Schema<ICarUpdate> = yup.object().shape({
   cover_image: yup.string().notRequired(),
 });
 
-export const carResponseSerializer: Schema<ICarUpdateResponse> = yup
+export const carResponseSerializer: SchemaOf<ICarUpdateResponse> = yup
   .object()
   .shape({
     id: yup.string().required(),

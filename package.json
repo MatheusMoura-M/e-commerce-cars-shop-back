@@ -24,7 +24,7 @@
     "typeorm": "0.3.11",
     "typescript": "^5.0.3",
     "uuid": "^9.0.0",
-    "yup": "^1.0.2"
+    "yup": "0.32.11"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
