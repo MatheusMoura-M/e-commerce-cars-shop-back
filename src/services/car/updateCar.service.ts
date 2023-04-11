@@ -2,12 +2,13 @@ import AppDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
+import { ICar } from "../../interfaces/car.interfaces";
 
 export const updateCarService = async (
   carUpdateData,
   userId: string,
   carId: string
-) => {
+): Promise<ICar> => {
   const userRepository = AppDataSource.getRepository(User);
   const carRepository = AppDataSource.getRepository(Car);
 
