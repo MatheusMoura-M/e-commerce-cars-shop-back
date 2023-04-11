@@ -2,10 +2,10 @@ import AppDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
-import { ICar } from "../../interfaces/car.interfaces";
+import { ICar, ICarUpdate } from "../../interfaces/car.interfaces";
 
 export const updateCarService = async (
-  carUpdateData,
+  carUpdateData: ICarUpdate,
   userId: string,
   carId: string
 ): Promise<ICar> => {
