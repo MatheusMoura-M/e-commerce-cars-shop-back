@@ -3,6 +3,7 @@ import { Car } from "../../entities/car.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
 import { ICar, ICarUpdate } from "../../interfaces/car.interfaces";
+import { carResponseSerializer } from "../../schemas/car.schemas";
 
 export const updateCarService = async (
   carUpdateData: ICarUpdate,
@@ -35,5 +36,9 @@ export const updateCarService = async (
 
   await carRepository.save(updatedCar);
 
-  return updatedCar;
+  const returnCar = await carResponseSerializer.validate(updatedCar, {
+    stripUnknown: true,
+  });
+
+  return returnCar;
 };
