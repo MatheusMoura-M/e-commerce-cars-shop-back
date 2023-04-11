@@ -7,5 +7,6 @@ const carRoutes = Router();
 
 carRoutes.post("", validateTokenMiddleware, createCarController);
 carRoutes.get("", validateTokenMiddleware, getCarsController);
+carRoutes.patch("", validateTokenMiddleware);
 
 export default carRoutes;
