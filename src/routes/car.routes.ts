@@ -5,16 +5,18 @@ import { getCarsController } from "../controllers/car/getCars.controller";
 import { bodyValidator } from "../middlewares";
 import { carUpdateSerializer } from "../schemas/car.schemas";
 import { updateCarController } from "../controllers/car/updateCar.controller";
+import { deleteCarController } from "../controllers/car/deleteCar.controller";
 
 const carRoutes = Router();
 
 carRoutes.post("", validateTokenMiddleware, createCarController);
 carRoutes.get("", validateTokenMiddleware, getCarsController);
 carRoutes.patch(
-  "",
+  "/:id",
   validateTokenMiddleware,
   bodyValidator(carUpdateSerializer),
   updateCarController
 );
+carRoutes.delete("/:id", validateTokenMiddleware, deleteCarController);
 
 export default carRoutes;
