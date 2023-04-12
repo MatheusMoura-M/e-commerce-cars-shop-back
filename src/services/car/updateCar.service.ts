@@ -20,8 +20,13 @@ export const updateCarService = async (
     id: userId,
   });
 
-  const car = await carRepository.findOneBy({
-    id: carId,
+  const car = await carRepository.findOne({
+    where: {
+      id: carId,
+    },
+    relations: {
+      user: true,
+    },
   });
 
   if (!car) {

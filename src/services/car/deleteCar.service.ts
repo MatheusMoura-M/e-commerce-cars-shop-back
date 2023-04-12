@@ -28,7 +28,7 @@ export const deleteCarService = async (
   }
 
   if (car.user.id !== user!.id) {
-    throw new AppError("You don't have permission to see this car", 403);
+    throw new AppError("You don't have permission to delete this car", 403);
   }
 
   await carRepository.delete(car.id);
