@@ -1,8 +1,8 @@
 import appDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
-import { ICar } from "../../interfaces/car.interfaces";
+import { ICarResponse } from "../../interfaces/car.interfaces";
 
-export const getCarsService = async (): Promise<ICar[]> => {
+export const getCarsService = async (): Promise<ICarResponse[]> => {
   const carRepo = appDataSource.getRepository(Car);
   const cars = await carRepo.find();
 

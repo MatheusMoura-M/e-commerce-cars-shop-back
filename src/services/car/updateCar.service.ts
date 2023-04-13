@@ -2,17 +2,15 @@ import AppDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
 import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
-import {
-  ICarUpdate,
-  ICarUpdateResponse,
-} from "../../interfaces/car.interfaces";
+import { ICarUpdate, ICarResponse } from "../../interfaces/car.interfaces";
 import { carResponseSerializer } from "../../schemas/car.schemas";
 
 export const updateCarService = async (
   carUpdateData: ICarUpdate,
   userId: string,
-  carId: string
-): Promise<ICarUpdateResponse> => {
+  carId: string,
+  isGoodPrice: boolean
+): Promise<ICarResponse> => {
   const userRepository = AppDataSource.getRepository(User);
   const carRepository = AppDataSource.getRepository(Car);
 
@@ -40,6 +38,7 @@ export const updateCarService = async (
   const updatedCar = carRepository.create({
     ...car,
     ...carUpdateData,
+    is_good_price: isGoodPrice,
   });
 
   await carRepository.save(updatedCar);
