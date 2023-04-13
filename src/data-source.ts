@@ -4,11 +4,11 @@ import { DataSourceOptions, DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { Car } from "./entities/car.entity";
-import { InitialMigration1681117604717 } from "./migrations/1681117604717-InitialMigration";
+import { UserAndCarEntities1681223550017 } from "./migrations/1681223550017-UserAndCarEntities";
 
 const DataSourceSettings = (): DataSourceOptions => {
   const entities = [User, Car];
-  const migrations = [InitialMigration1681117604717];
+  const migrations = [UserAndCarEntities1681223550017];
 
   const node_env = process.env.NODE_ENV;
 

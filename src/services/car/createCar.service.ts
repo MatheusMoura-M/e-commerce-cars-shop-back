@@ -2,6 +2,7 @@ import AppDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
 import { User } from "../../entities/user.entity";
 import { ICarRequest } from "../../interfaces/car.interfaces";
+import { carResponseSerializer } from "../../schemas/car.schemas";
 
 export const createCarService = async (
   carData: ICarRequest,
@@ -24,5 +25,9 @@ export const createCarService = async (
   const newCar = contactRepository.create(contact);
   await contactRepository.save(newCar);
 
-  return newCar;
+  const returnCar = await carResponseSerializer.validate(newCar, {
+    stripUnknown: true,
+  });
+
+  return returnCar;
 };
