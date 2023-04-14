@@ -43,3 +43,14 @@ export interface ICarResponse {
   published: boolean;
   cover_image: string;
 }
+
+export interface ICarImageResponse {
+  id: string,
+  image_url: string,
+  car?: ICarResponse
+}
+
+export interface IBrandResponse{
+  id: string,
+  name: string
+}
