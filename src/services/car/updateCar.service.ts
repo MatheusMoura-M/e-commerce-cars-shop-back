@@ -1,6 +1,6 @@
 import { AppError } from "../../error/appError.error";
 import { ICarUpdate, ICarResponse } from "../../interfaces/car.interfaces";
-import { carResponseSerializer } from "../../schemas/car.schemas";
+import { carResponseSchema } from "../../schemas/car";
 import { carRepo, userRepo } from "../../utils/repositories";
 
 export const updateCarService = async (
@@ -38,7 +38,7 @@ export const updateCarService = async (
 
   await carRepo.save(updatedCar);
 
-  const returnCar = await carResponseSerializer.validate(updatedCar, {
+  const returnCar = await carResponseSchema.validate(updatedCar, {
     stripUnknown: true,
   });
 

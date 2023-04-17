@@ -1,6 +1,6 @@
 import { User } from "../../entities/user.entity";
 import { ICarRequest } from "../../interfaces/car.interfaces";
-import { carResponseSerializer } from "../../schemas/car.schemas";
+import { carResponseSchema } from "../../schemas/car";
 import { brandRepo, carRepo, userRepo } from "../../utils/repositories";
 
 export const createCarService = async (
@@ -24,7 +24,7 @@ export const createCarService = async (
   const newCar = carRepo.create(car);
   await carRepo.save(newCar);
 
-  const returnCar = await carResponseSerializer.validate(newCar, {
+  const returnCar = await carResponseSchema.validate(newCar, {
     stripUnknown: true,
   });
 

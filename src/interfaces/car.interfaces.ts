@@ -12,6 +12,11 @@ export interface ICarRequest {
   cover_image: string;
 }
 
+export interface ICarResponse extends ICarRequest {
+  id: string;
+  is_good_price: boolean;
+}
+
 export interface ICarUpdate {
   brand?: string;
   model?: string;
@@ -24,22 +29,6 @@ export interface ICarUpdate {
   description?: string;
   published?: boolean;
   cover_image?: string;
-}
-
-export interface ICarResponse {
-  id: string;
-  brand: string;
-  model: string;
-  year: string;
-  fuel: string;
-  km: number;
-  color: string;
-  price: number;
-  fipe: number;
-  description: string;
-  is_good_price: boolean;
-  published: boolean;
-  cover_image: string;
 }
 
 export interface ICarImageResponse {

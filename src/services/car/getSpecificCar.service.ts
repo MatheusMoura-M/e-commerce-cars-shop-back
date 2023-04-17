@@ -1,9 +1,9 @@
 import { AppError } from "../../error/appError.error";
-import { especifcCarResponseSchema } from "../../schemas/car.schemas";
 import { ICarResponse } from "../../interfaces/car.interfaces";
+import { specificCarResponseSchema } from "../../schemas/car";
 import { carRepo } from "../../utils/repositories";
 
-export const getEspecificCarService = async (
+export const getSpecificCarService = async (
   carId: string
 ): Promise<ICarResponse> => {
   const car = await carRepo.findOne({
@@ -19,7 +19,7 @@ export const getEspecificCarService = async (
     throw new AppError("Car not found!", 404);
   }
 
-  const carValidated = await especifcCarResponseSchema.validate(car, {
+  const carValidated = await specificCarResponseSchema.validate(car, {
     stripUnknown: true,
   });
 

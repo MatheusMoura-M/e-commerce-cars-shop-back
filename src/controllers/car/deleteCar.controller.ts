@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { deleteCarService } from "../../services/car/deleteCar.service";
+import { deleteCarService } from "../../services/car";
 
 export const deleteCarController = async (req: Request, res: Response) => {
   const userId: string = req.id;
