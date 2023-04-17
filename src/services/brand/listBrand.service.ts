@@ -1,13 +1,8 @@
-import appDataSource from "../../data-source"
-import { Brand } from "../../entities"
-import { IBrandResponse } from "../../interfaces/car.interfaces"
+import { IBrandResponse } from "../../interfaces/car.interfaces";
+import { brandRepo } from "../../utils/repositories";
 
 export const listBrandsService = async (): Promise<IBrandResponse[]> => {
+  const brand_arr = await brandRepo.find();
 
-    const brandRepository = appDataSource.getRepository(Brand)
-
-    const barnd_arr = await brandRepository.find()
-
-    return barnd_arr
-
-}
+  return brand_arr;
+};

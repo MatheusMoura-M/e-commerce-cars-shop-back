@@ -1,20 +1,15 @@
-import AppDataSource from "../../data-source";
-import { Car } from "../../entities/car.entity";
-import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
+import { carRepo, userRepo } from "../../utils/repositories";
 
 export const deleteCarService = async (
   userId: string,
   carId: string
 ): Promise<{}> => {
-  const userRepository = AppDataSource.getRepository(User);
-  const carRepository = AppDataSource.getRepository(Car);
-
-  const user = await userRepository.findOneBy({
+  const user = await userRepo.findOneBy({
     id: userId,
   });
 
-  const car = await carRepository.findOne({
+  const car = await carRepo.findOne({
     where: {
       id: carId,
     },
@@ -31,7 +26,7 @@ export const deleteCarService = async (
     throw new AppError("You don't have permission to delete this car", 403);
   }
 
-  await carRepository.delete(car.id);
+  await carRepo.delete(car.id);
 
   return {};
 };

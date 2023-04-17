@@ -4,14 +4,13 @@ import { DataSourceOptions, DataSource } from "typeorm";
 import "dotenv/config";
 import { User } from "./entities/user.entity";
 import { Car } from "./entities/car.entity";
-import {ImageCar} from "./entities/image.entity";
-import {Brand} from "./entities/brand.entity"
-import { tablesImageBrand1681499772773 } from "./migrations/1681499772773-tables-image-brand";
+import { ImageCar } from "./entities/image.entity";
+import { Brand } from "./entities/brand.entity";
+import { initials1681742141998 } from "./migrations/1681742141998-initials";
 
 const DataSourceSettings = (): DataSourceOptions => {
-
   const entities = [User, Car, ImageCar, Brand];
-  const migrations = [tablesImageBrand1681499772773];
+  const migrations = [initials1681742141998];
 
   const node_env = process.env.NODE_ENV;
 

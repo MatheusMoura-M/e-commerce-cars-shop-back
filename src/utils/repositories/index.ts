@@ -1,7 +1,9 @@
-import AppDataSource from "../../data-source";
-import { Car, User } from "../../entities";
+import appDataSource from "../../data-source";
+import { Brand, Car, ImageCar, User } from "../../entities";
 
-const userRepo = AppDataSource.getRepository(User);
-const carRepo = AppDataSource.getRepository(Car);
+const userRepo = appDataSource.getRepository(User);
+const carRepo = appDataSource.getRepository(Car);
+const imageRepo = appDataSource.getRepository(ImageCar);
+const brandRepo = appDataSource.getRepository(Brand);
 
-export { userRepo, carRepo };
+export { userRepo, carRepo, imageRepo, brandRepo };

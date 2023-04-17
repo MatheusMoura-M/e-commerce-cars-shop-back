@@ -1,32 +1,34 @@
-import appDataSource from "../../../data-source";
-import { Car, ImageCar } from "../../../entities";
 import { AppError } from "../../../error/appError.error";
 import { ICarImageResponse } from "../../../interfaces/car.interfaces";
+import { carRepo, imageRepo } from "../../../utils/repositories";
 
-export const createCarImageService = async (url_image: string, id: string, id_user: string): Promise<ICarImageResponse>  => {
+export const createCarImageService = async (
+  url_image: string,
+  id: string,
+  id_user: string
+): Promise<ICarImageResponse> => {
+  const findCar = await carRepo.findOneBy({ id: id });
 
-    const carRepository = appDataSource.getRepository(Car)
-    const imageRepository = appDataSource.getRepository(ImageCar)
+  if (!findCar) {
+    throw new AppError("Car not found", 404);
+  }
 
-    const findCar = await carRepository.findOneBy({id: id})
-    
-    if(!findCar){
-        throw new AppError("Car not found", 404)
-    }
-
-    const is_Owner = await carRepository.createQueryBuilder("cars")
+  const is_Owner = await carRepo
+    .createQueryBuilder("cars")
     .innerJoinAndSelect("cars.user", "user")
-    .where("cars.id = :id_car", {id_car: id})
-    .andWhere("user.id = :id_user", {id_user: id_user})
-    .getOne()
+    .where("cars.id = :id_car", { id_car: id })
+    .andWhere("user.id = :id_user", { id_user: id_user })
+    .getOne();
 
-    if (!is_Owner) {
-        throw new AppError("You don't have permission to delete this car", 403);
-    }
+  if (!is_Owner) {
+    throw new AppError("You don't have permission to delete this car", 403);
+  }
 
-    const createImage = imageRepository.create({image_url: url_image, car: findCar})
-    await imageRepository.save(createImage)
+  const createImage = imageRepo.create({
+    image_url: url_image,
+    car: findCar,
+  });
+  await imageRepo.save(createImage);
 
-    return createImage
-
-}
+  return createImage;
+};

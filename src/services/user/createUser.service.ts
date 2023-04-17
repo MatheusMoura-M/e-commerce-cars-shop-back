@@ -1,11 +1,9 @@
-import AppDataSource from "../../data-source";
-import { User } from "../../entities/user.entity";
 import { IUserRequest } from "../../interfaces/user.interfaces";
+import { userRepo } from "../../utils/repositories";
 
 export const createUserService = async (
   userData: IUserRequest
 ): Promise<IUserRequest> => {
-  const userRepo = AppDataSource.getRepository(User);
   const newUser = userRepo.create(userData);
 
   await userRepo.save(newUser);

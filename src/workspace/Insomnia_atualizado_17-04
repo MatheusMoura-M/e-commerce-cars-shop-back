@@ -1,0 +1,1380 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2023-04-17T19:45:01.743Z",
+  "__export_source": "insomnia.desktop.app:v2023.1.0",
+  "resources": [
+    {
+      "_id": "req_3c4bde59ea1a4e1ebf1086f745b5dbbc",
+      "parentId": "fld_89b2ea76466545ee9cc82f8a908876ed",
+      "modified": 1679935964353,
+      "created": 1679421912838,
+      "url": "{{ _.baseUrl }}/clients",
+      "name": "GET All Clients",
+      "description": "#### Rota para listagem de todos os usuários da aplicação.\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t[\n\t\t{\n\t\t\t\"name\": \"Matheus Moura\",\n\t\t\t\"email\": \"mathues@mail.com\",\n\t\t\t\"phone\": \"123123123\",\n\t\t\t\"id\": \"92548-f340-41e2-bdb3-30dbasd581ad\",\n\t\t\t\"createdAt\": \"2023-06-18\",\n\t\t\t\"updatedAt\": \"2023-06-18\",\n\t\t\t\"contacts\": []\n\t\t},\n\t\t{\n\t\t\t\"name\": \"joao\",\n\t\t\t\"email\": \"jao@mail.com\",\n\t\t\t\"phone\": \"85643099\",\n\t\t\t\"id\": \"147cba08-f340-41e2-cdb3-30dbeb5c275257\",\n\t\t\t\"createdAt\": \"2023-06-18\",\n\t\t\t\"updatedAt\": \"2023-06-18\",\n\t\t\t\"contacts\": []\n\t\t}\n]\n```",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token1 }}"
+      },
+      "metaSortKey": -1679422889204,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_89b2ea76466545ee9cc82f8a908876ed",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679492592976,
+      "created": 1679492592976,
+      "name": "CLient",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679492592976,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "parentId": null,
+      "modified": 1679939035518,
+      "created": 1679421909273,
+      "name": "Desafio Full Stack",
+      "description": "Esse projeto é relacionado à um projeto front-end.<br/>\n**Você pode conferir aqui: [Front-End](https://github.com/MatheusMoura-M/projeto-fullstack_frontend)<br/>**\nEsse projeto também é atrelado à um projeto back-end.<br/>\n**Você pode conferir aqui: [Back-End](https://github.com/MatheusMoura-M/projeto-fullstack_backend)**\n\nAs rotas expostas nessa aplicação visam um melhor controle da parte gerencial do projeto, assim garantindo um melhor flow entre usuários, contatos e suas particularidades.\n\nObs: Esse projeto foi feito baseado no PostGreSQL aliado com Express, para utilizá-lo é necessário que o servidor esteja rodando em sua máquina ou em algum outro host.\n\nPara utilizá-lo, atribua as váriaveis dentro de um arquivo env com as chaves propostas no env.example.\n\nO environment criado nesse insomnia pode ser encontrado na parte superior direita do seu navegador.  o mesmo visa fornecer dados através do próprio insomnia, como resultados das requisições. Fique a vontade para usá-lo.\n\nUtilize essa URL base para a aplicação: http://127.0.0.1:3001, com base no localhost.",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_9900add8abb3435e978209872854f6fe",
+      "parentId": "fld_89b2ea76466545ee9cc82f8a908876ed",
+      "modified": 1679936162838,
+      "created": 1679422889529,
+      "url": "{{ _.baseUrl }}/client",
+      "name": "CREATE Client",
+      "description": "#### Rota para criação de um usuário.\n\n***Necessário fornecer no corpo da requisição:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"password\" : \"string\" ,\n\t\t\"phone\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 201 CREATED**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"112223341\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:16.821Z\"\n\t}\n```",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Matheus\",\n\t\"email\": \"matheus@mail.com\",\n\t\"password\": \"123123\",\n\t\"phone\": \"112223341\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679422889254,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c9c566842b9b47edbe9d3bed76652e9b",
+      "parentId": "fld_5f417ed279054d94bb1a639b3c898c1c",
+      "modified": 1680027083713,
+      "created": 1679493586075,
+      "url": "{{ _.baseUrl }}/contacts",
+      "name": "CREATE Contact",
+      "description": "#### Rota para criação de um contato.\n\n***Necessário fornecer no corpo da requisição:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"phone\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 201 CREATED**\n\n```json\n\t{\n\t\t\"id\": \"8a4120fe-09f9-43b2-b3ef-afed132dc42a\",\n\t\t\"name\": \"Contact\",\n\t\t\"email\": \"contact@mail.com\",\n\t\t\"phone\": \"12319729\",\n\t\t\"client\": {\n\t\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\"\n\t\t},\n\t\t\"createdAt\": \"2023-03-27T13:47:17.598Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:47:17.598Z\"\n\t}\n```",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Contact\",\n\t\"email\": \"contact@mail.com\",\n\t\"phone\": \"12319729\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token1 }}",
+        "disabled": false
+      },
+      "metaSortKey": -1679422889379,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_5f417ed279054d94bb1a639b3c898c1c",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679924831221,
+      "created": 1679493586051,
+      "name": "Contacts",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679457741002.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_89b02396a1044eb7b0e8732e4e280957",
+      "parentId": "fld_5f417ed279054d94bb1a639b3c898c1c",
+      "modified": 1679937014565,
+      "created": 1679493586105,
+      "url": "{{ _.baseUrl }}/client/contacts",
+      "name": "GET Contacts by Client",
+      "description": "#### Rota para listagem de todos os contatos do usuário logado.\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t[\n\t\t{\n\t\t\t\"id\": \"8a4120fe-09f9-43b2-b3ef-afed132dc42a\",\n\t\t\t\"name\": \"Contact - Patch\",\n\t\t\t\"email\": \"contact@mail.com\",\n\t\t\t\"phone\": \"99917231\",\n\t\t\t\"client\": {\n\t\t\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\"\n\t\t\t},\n\t\t\t\"createdAt\": \"2023-03-27T13:47:17.598Z\",\n\t\t\t\"updatedAt\": \"2023-03-27T13:47:59.640Z\"\n\t\t}\n\t]\n```",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token1 }}"
+      },
+      "metaSortKey": -1679422889329,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_8d18e4e040324e66ab59e7c6b875c996",
+      "parentId": "fld_d2db845f6ee2424a94dffc60ec0df7af",
+      "modified": 1679935305104,
+      "created": 1679577479542,
+      "url": "{{ _.baseUrl }}/login",
+      "name": "Login",
+      "description": "#### Rota para login.\n\n***Necessário fornecer no corpo da requisição:***\n\n```json\n\t{\n\t\t\"email\": \"string\",\n\t\t\"password\": \"string\"\n\t}\n```\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhldXNAbWFpbC5jb20iLCJpYXQiOjE2Nzk5MjQyMzksImV4cCI6MTY4MDAxMDYzOSwic3ViIjoiNzNmMjFiMmQtM2RhOC00NmMyLTk2MGEtYTUyZjhlZGFiYjBjIn0.2Aiy5wk3SYIXILLv7olGvYOzNo8Cwb1FuIXuzMtjDhc\"\n\t}\n```",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"matheus@mail.com\",\n\t\"password\": \"123123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679577479542,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_d2db845f6ee2424a94dffc60ec0df7af",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679577478496,
+      "created": 1679577478496,
+      "name": "Session",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679577478496,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_c547e5dc9b7d49b3aa4ddebc04caaae5",
+      "parentId": "fld_bfc4f44491684e268a263f041b01c5d3",
+      "modified": 1679939244897,
+      "created": 1679492716961,
+      "url": "{{ _.baseUrl }}/client/73f21b2d-3da8-46c2-960a-a52f8edabb0c",
+      "name": "GET Cliente by Id",
+      "description": "#### Rota para listagem do usuário logado.\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"6055055\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:57.085Z\",\n\t\t\"contacts\": [\n\t\t\t{\n\t\t\t\t\"id\": \"8a4120fe-09f9-43b2-b3ef-afed132dc42a\",\n\t\t\t\t\"name\": \"Contact\",\n\t\t\t\t\"email\": \"contact@mail.com\",\n\t\t\t\t\"phone\": \"21412311\",\n\t\t\t\t\"createdAt\": \"2023-03-27T13:47:17.598Z\",\n\t\t\t\t\"updatedAt\": \"2023-03-27T14:16:57.823Z\",\n\t\t\t\t\"deletedAt\": null\n\t\t\t}\n\t\t]\n\t}\n```",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1679486058168.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_bfc4f44491684e268a263f041b01c5d3",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679923529917,
+      "created": 1679923504522,
+      "name": "Client Details",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679457741152.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_8cf2582f5c0e47839becfc34a24356dd",
+      "parentId": "fld_bfc4f44491684e268a263f041b01c5d3",
+      "modified": 1679939235031,
+      "created": 1679502736748,
+      "url": "{{ _.baseUrl }}/client/73f21b2d-3da8-46c2-960a-a52f8edabb0c",
+      "name": "PATCH Client",
+      "description": "#### Rota para edição de um cliente.\n\n***Necessário passar um id como parâmetro, que seria do cliente a ser editado.<br/>***\n\n***Necessário fornecer no corpo da requisição a alteracão desejada, pelo menos um dos campos opcionais:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"phone\": \"string\",\n\t\t\"password\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus - Patch\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"6055055\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:57.085Z\"\n\t}\n```",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Matheus - Patch\",\n\t\"phone\": 6055055\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679486058268.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_904f01c1c273462bad86cd6dc1a4f2f4",
+      "parentId": "fld_bfc4f44491684e268a263f041b01c5d3",
+      "modified": 1679939240409,
+      "created": 1679923420687,
+      "url": "{{ _.baseUrl }}/client/73f21b2d-3da8-46c2-960a-a52f8edabb0c",
+      "name": "DELETE Client",
+      "description": "#### Rota para deleção de um cliente.\n\n***Necessário passar um id como parâmetro, que seria do cliente específico.***\n\n**Retorno Esperado: STATUS 204 NO CONTENT**",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1679486058218.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_83ea99e968df4bda8e60c9f093bc5c4d",
+      "parentId": "fld_db1273594b9a43e88d383a6a09f30caf",
+      "modified": 1679939262347,
+      "created": 1679510699958,
+      "url": "{{ _.baseUrl }}/contacts/8a4120fe-09f9-43b2-b3ef-afed132dc42a",
+      "name": "PATCH Contact",
+      "description": "#### Rota para edição de um contato.\n\n***Necessário passar um id como parâmetro, que seria do contato a ser editado.<br/>***\n\n***Necessário fornecer no corpo da requisição a alteracão desejada, pelo menos um dos campos opcionais:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"phone\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"id\": \"8a4120fe-09f9-43b2-b3ef-afed132dc42a\",\n\t\t\"name\": \"Contact - Patch\",\n\t\t\"email\": \"contact@mail.com\",\n\t\t\"phone\": \"99917231\",\n\t\t\"client\": {\n\t\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\"\n\t\t},\n\t\t\"createdAt\": \"2023-03-27T13:47:17.598Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:47:59.640Z\"\n\t}\n```",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Contact - Patch\",\n\t\"phone\": \"99917231\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679457741083.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_db1273594b9a43e88d383a6a09f30caf",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679926767169,
+      "created": 1679924007221,
+      "name": "Contact Detail",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679457740952.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e32288c7f1df41089983a337e4fa4cc2",
+      "parentId": "fld_db1273594b9a43e88d383a6a09f30caf",
+      "modified": 1679939271283,
+      "created": 1679515677117,
+      "url": "{{ _.baseUrl }}/contacts/8a4120fe-09f9-43b2-b3ef-afed132dc42a",
+      "name": "DELETE Contact",
+      "description": "#### Rota para deleção de um contato, necessário estar autenticado.\n\n***Necessário passar um id como parâmetro, que seria do contato específico.***\n\n**Retorno Esperado: STATUS 204 NO CONTENT**",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token1 }}"
+      },
+      "metaSortKey": -1679457741046.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a570309599cc427db17508ca8e394e57",
+      "parentId": "fld_82433c2c63334cdfb25c7c1132986fd1",
+      "modified": 1680098428331,
+      "created": 1680098365855,
+      "url": "{{ _.baseUrl }}/users",
+      "name": "GET All Clients",
+      "description": "#### Rota para listagem de todos os usuários da aplicação.\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t[\n\t\t{\n\t\t\t\"name\": \"Matheus Moura\",\n\t\t\t\"email\": \"mathues@mail.com\",\n\t\t\t\"phone\": \"123123123\",\n\t\t\t\"id\": \"92548-f340-41e2-bdb3-30dbasd581ad\",\n\t\t\t\"createdAt\": \"2023-06-18\",\n\t\t\t\"updatedAt\": \"2023-06-18\",\n\t\t\t\"contacts\": []\n\t\t},\n\t\t{\n\t\t\t\"name\": \"joao\",\n\t\t\t\"email\": \"jao@mail.com\",\n\t\t\t\"phone\": \"85643099\",\n\t\t\t\"id\": \"147cba08-f340-41e2-cdb3-30dbeb5c275257\",\n\t\t\t\"createdAt\": \"2023-06-18\",\n\t\t\t\"updatedAt\": \"2023-06-18\",\n\t\t\t\"contacts\": []\n\t\t}\n]\n```",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token1 }}"
+      },
+      "metaSortKey": -1679422889204,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_82433c2c63334cdfb25c7c1132986fd1",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098365852,
+      "created": 1680098365852,
+      "name": "CLient",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679492592976,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "parentId": null,
+      "modified": 1680098376372,
+      "created": 1680098365825,
+      "name": "atvd nest",
+      "description": "Esse projeto é relacionado à um projeto front-end.<br/>\n**Você pode conferir aqui: [Front-End](https://github.com/MatheusMoura-M/projeto-fullstack_frontend)<br/>**\nEsse projeto também é atrelado à um projeto back-end.<br/>\n**Você pode conferir aqui: [Back-End](https://github.com/MatheusMoura-M/projeto-fullstack_backend)**\n\nAs rotas expostas nessa aplicação visam um melhor controle da parte gerencial do projeto, assim garantindo um melhor flow entre usuários, contatos e suas particularidades.\n\nObs: Esse projeto foi feito baseado no PostGreSQL aliado com Express, para utilizá-lo é necessário que o servidor esteja rodando em sua máquina ou em algum outro host.\n\nPara utilizá-lo, atribua as váriaveis dentro de um arquivo env com as chaves propostas no env.example.\n\nO environment criado nesse insomnia pode ser encontrado na parte superior direita do seu navegador.  o mesmo visa fornecer dados através do próprio insomnia, como resultados das requisições. Fique a vontade para usá-lo.\n\nUtilize essa URL base para a aplicação: http://127.0.0.1:3001, com base no localhost.",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_e86a22d48ab742c582caea7fc5a4f128",
+      "parentId": "fld_82433c2c63334cdfb25c7c1132986fd1",
+      "modified": 1680098423227,
+      "created": 1680098365862,
+      "url": "{{ _.baseUrl }}/users",
+      "name": "CREATE Client",
+      "description": "#### Rota para criação de um usuário.\n\n***Necessário fornecer no corpo da requisição:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"password\" : \"string\" ,\n\t\t\"phone\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 201 CREATED**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"112223341\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:16.821Z\"\n\t}\n```",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Matheus\",\n\t\"email\": \"matheus@mail.com\",\n\t\"password\": \"123123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679422889254,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_dd46e2a2987a49d3a20222f1cdf2dbe9",
+      "parentId": "fld_181ff17ca71a4b63b0405c7d7b4700f1",
+      "modified": 1680098365896,
+      "created": 1680098365896,
+      "url": "{{ _.baseUrl }}/login",
+      "name": "Login",
+      "description": "#### Rota para login.\n\n***Necessário fornecer no corpo da requisição:***\n\n```json\n\t{\n\t\t\"email\": \"string\",\n\t\t\"password\": \"string\"\n\t}\n```\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hdGhldXNAbWFpbC5jb20iLCJpYXQiOjE2Nzk5MjQyMzksImV4cCI6MTY4MDAxMDYzOSwic3ViIjoiNzNmMjFiMmQtM2RhOC00NmMyLTk2MGEtYTUyZjhlZGFiYjBjIn0.2Aiy5wk3SYIXILLv7olGvYOzNo8Cwb1FuIXuzMtjDhc\"\n\t}\n```",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"matheus@mail.com\",\n\t\"password\": \"123123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679577479542,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_181ff17ca71a4b63b0405c7d7b4700f1",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098365891,
+      "created": 1680098365891,
+      "name": "Session",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679577478496,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e9bb8383603548ed8d06080b53f80935",
+      "parentId": "fld_6bf17f17fb0a4dc5befb50980b339246",
+      "modified": 1680098365909,
+      "created": 1680098365909,
+      "url": "{{ _.baseUrl }}/client/73f21b2d-3da8-46c2-960a-a52f8edabb0c",
+      "name": "GET Cliente by Id",
+      "description": "#### Rota para listagem do usuário logado.\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"6055055\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:57.085Z\",\n\t\t\"contacts\": [\n\t\t\t{\n\t\t\t\t\"id\": \"8a4120fe-09f9-43b2-b3ef-afed132dc42a\",\n\t\t\t\t\"name\": \"Contact\",\n\t\t\t\t\"email\": \"contact@mail.com\",\n\t\t\t\t\"phone\": \"21412311\",\n\t\t\t\t\"createdAt\": \"2023-03-27T13:47:17.598Z\",\n\t\t\t\t\"updatedAt\": \"2023-03-27T14:16:57.823Z\",\n\t\t\t\t\"deletedAt\": null\n\t\t\t}\n\t\t]\n\t}\n```",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1679486058168.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_6bf17f17fb0a4dc5befb50980b339246",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098365905,
+      "created": 1680098365905,
+      "name": "Client Details",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1679457741152.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_1f8a6caaaa0e4be0ad9447e3c3ce875b",
+      "parentId": "fld_6bf17f17fb0a4dc5befb50980b339246",
+      "modified": 1680098458152,
+      "created": 1680098365915,
+      "url": "{{ _.baseUrl }}/users/98812c18-d21f-4235-9524-2498c03dd56f",
+      "name": "PATCH Client",
+      "description": "#### Rota para edição de um cliente.\n\n***Necessário passar um id como parâmetro, que seria do cliente a ser editado.<br/>***\n\n***Necessário fornecer no corpo da requisição a alteracão desejada, pelo menos um dos campos opcionais:***\n\n```json\n\t{\n\t\t\"name\": \"string\",\n\t\t\"email\": \"string\",\n\t\t\"phone\": \"string\",\n\t\t\"password\": \"string\"\n\t}\n```\n\n**Retorno Esperado: STATUS 200 OK**\n\n```json\n\t{\n\t\t\"id\": \"73f21b2d-3da8-46c2-960a-a52f8edabb0c\",\n\t\t\"name\": \"Matheus - Patch\",\n\t\t\"email\": \"matheus@mail.com\",\n\t\t\"phone\": \"6055055\",\n\t\t\"createdAt\": \"2023-03-27T13:37:16.821Z\",\n\t\t\"updatedAt\": \"2023-03-27T13:37:57.085Z\"\n\t}\n```",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Matheus - Patch\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1679486058268.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_83b2950c153b4b74a97024a45ba208bc",
+      "parentId": "fld_6bf17f17fb0a4dc5befb50980b339246",
+      "modified": 1680098477400,
+      "created": 1680098365923,
+      "url": "{{ _.baseUrl }}/users/98812c18-d21f-4235-9524-2498c03dd56f",
+      "name": "DELETE Client",
+      "description": "#### Rota para deleção de um cliente.\n\n***Necessário passar um id como parâmetro, que seria do cliente específico.***\n\n**Retorno Esperado: STATUS 204 NO CONTENT**",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1679486058218.4688,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f66bc28fd7364604b111af976ae15efd",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681495531629,
+      "created": 1681309836516,
+      "url": "{{ _.baseURL }}/car/18baeb0d-a123-47f9-937c-620c1781fb4",
+      "name": "Delete Car",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}"
+      },
+      "metaSortKey": -1681309175082,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_d95e685b775642f09bbcd415b3221795",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681742960308,
+      "created": 1681309170841,
+      "name": "Car",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681309167957.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "parentId": null,
+      "modified": 1681308339547,
+      "created": 1681308339547,
+      "name": "E-commerce Cars",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_ca8b62cdf0c44eb1b3189e62dc5f511f",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681494588853,
+      "created": 1681309849729,
+      "url": "{{ _.baseURL }}/car/e64a8d8c-13d9-4b85-9258-8a8bb41352ce",
+      "name": "Update Car",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"km\": \"380\",\n  \"color\": \"preto fosco\",\n  \"price\": 8000.000\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser2 }}"
+      },
+      "metaSortKey": -1681309175032,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_78238bcb408f445fbb5d43cd4a67be40",
+      "parentId": "fld_38db111ecf944e40a439e7435e611acf",
+      "modified": 1681312419749,
+      "created": 1681309866986,
+      "url": "{{ _.baseURL }}/user",
+      "name": "Delete User (In maintenance)",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1681309175082,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_38db111ecf944e40a439e7435e611acf",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681742957593,
+      "created": 1681309866975,
+      "name": "User",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681309170145.125,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_4cb9d96ff4a44e80ace1328569dbd7ff",
+      "parentId": "fld_38db111ecf944e40a439e7435e611acf",
+      "modified": 1681742991582,
+      "created": 1681309866989,
+      "url": "{{ _.baseURL }}/user",
+      "name": "Update User (In maintenance)",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": ""
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1681309175032,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d7ba7c284f6944c29b300edcecd20813",
+      "parentId": "fld_4d8af962fa064fbb9d0a39e7181ada92",
+      "modified": 1681311734484,
+      "created": 1681310173881,
+      "url": "{{ _.baseURL }}/login",
+      "name": "Login User 1",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"{{ _.emailUser1 }}\",\n\t\"password\": \"1234\" \n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1681310173881,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_4d8af962fa064fbb9d0a39e7181ada92",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681742954488,
+      "created": 1681310171000,
+      "name": "Login",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681309168007.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_2cac53e1b78048b68551bb414a9054c6",
+      "parentId": "fld_4d8af962fa064fbb9d0a39e7181ada92",
+      "modified": 1681742947106,
+      "created": 1681311687204,
+      "url": "{{ _.baseURL }}/login",
+      "name": "Login User 2",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\": \"{{ _.emailUser2 }}\",\n\t\"password\": \"123123\" \n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1681310173831,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5cd738d83a9f407798a37ed9e9de9448",
+      "parentId": "fld_05c71e58c7f849109c3c979e8f0a8d5c",
+      "modified": 1681759920501,
+      "created": 1681491087375,
+      "url": "{{ _.baseURL }}/car/image/{% response 'body', 'req_3e2d08d256a147428b896d7ced71979c', 'b64::JC4wLmlk::46b', 'never', 60 %}",
+      "name": "create image",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"image_url\": \"deu certo 2\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}"
+      },
+      "metaSortKey": -1681491087375,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_05c71e58c7f849109c3c979e8f0a8d5c",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681491084160,
+      "created": 1681491084160,
+      "name": "image routes",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681491084160,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_3151c82480a54c06be8a741be9ba88f3",
+      "parentId": "fld_05c71e58c7f849109c3c979e8f0a8d5c",
+      "modified": 1681759989279,
+      "created": 1681492136693,
+      "url": "{{ _.baseURL }}/car/image/{% response 'body', 'req_3e2d08d256a147428b896d7ced71979c', 'b64::JC4wLmlk::46b', 'never', 60 %}",
+      "name": "list image car",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1681492136693,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_88201c7199034f4da0c0895e6a1e6f04",
+      "parentId": "fld_05c71e58c7f849109c3c979e8f0a8d5c",
+      "modified": 1681760358397,
+      "created": 1681493154244,
+      "url": "{{ _.baseURL }}/car/image/{% response 'body', 'req_3151c82480a54c06be8a741be9ba88f3', 'b64::JC4wLmlk::46b', 'never', 60 %}",
+      "name": "delete image car",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}"
+      },
+      "metaSortKey": -1681493154244,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_31fc3003d697411c819d77be59d1d402",
+      "parentId": "fld_89b81dd83d34464c9bb01b673a154b7c",
+      "modified": 1681754329400,
+      "created": 1681499430128,
+      "url": "{{ _.baseURL }}/car/brands",
+      "name": "lista marcas",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "",
+        "disabled": true
+      },
+      "metaSortKey": -1681499430128,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_89b81dd83d34464c9bb01b673a154b7c",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681499427130,
+      "created": 1681499427130,
+      "name": "brands",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681499427130,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_fd012a34b1ce4e30959e8f5f0a102b8c",
+      "parentId": "fld_b94d684487464bfda619f8e8f7e8ccf8",
+      "modified": 1681760522913,
+      "created": 1681309175182,
+      "url": "{{ _.baseURL }}/car",
+      "name": "Create Car",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"brand\": \"Fiat\", \n  \"model\": \"Palio\",\n  \"year\": \"2008\",\n  \"fuel\": \"Gasolina\",\n  \"km\": \"300\",\n  \"color\": \"preta\",\n  \"price\": 689.000,\n  \"fipe\": 0.5,\n  \"description\": \"carro mto bom\",\n  \"is_good_price\": true,\n  \"published\": true,\n  \"cover_image\": \"https://media.ed.edmunds-media.com/bmw/x5/2013/oem/2013_bmw_x5_4dr-suv_xdrive35d_fq_oem_1_1600.jpg\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}",
+        "disabled": false
+      },
+      "metaSortKey": -1681309175182,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_b94d684487464bfda619f8e8f7e8ccf8",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681760504419,
+      "created": 1681760504419,
+      "name": "Create",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681760504419,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_5970b90409ca4c07b5d8d85d3308862b",
+      "parentId": "fld_b94d684487464bfda619f8e8f7e8ccf8",
+      "modified": 1681760525543,
+      "created": 1681313518752,
+      "url": "{{ _.baseURL }}/car",
+      "name": "Create Car 2",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"brand\": \"bmw\", \n  \"model\": \"bmw x6\",\n  \"year\": \"2018\",\n  \"fuel\": \"Gasolina\",\n  \"km\": \"300\",\n  \"color\": \"preta\",\n  \"price\": 689.000,\n  \"fipe\": 0.5,\n  \"description\": \"carro mto bom\",\n  \"is_good_price\": true,\n  \"published\": true,\n  \"cover_image\": \"https://media.ed.edmunds-media.com/bmw/x5/2013/oem/2013_bmw_x5_4dr-suv_xdrive35d_fq_oem_1_1600.jpg\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser2 }}",
+        "disabled": false
+      },
+      "metaSortKey": -1681309175132,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3e2d08d256a147428b896d7ced71979c",
+      "parentId": "fld_a5c6ab384faa4073ba540ca2fbd702f6",
+      "modified": 1681760519808,
+      "created": 1681309184698,
+      "url": "{{ _.baseURL }}/car",
+      "name": "List All Cars",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "",
+        "disabled": true
+      },
+      "metaSortKey": -1681400129621,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_a5c6ab384faa4073ba540ca2fbd702f6",
+      "parentId": "fld_d95e685b775642f09bbcd415b3221795",
+      "modified": 1681760531410,
+      "created": 1681760509471,
+      "name": "List",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681629965774.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_8a1bf917f20c4baab9c71c5ed007651a",
+      "parentId": "fld_a5c6ab384faa4073ba540ca2fbd702f6",
+      "modified": 1681760514299,
+      "created": 1681742503960,
+      "url": "{{ _.baseURL }}/car/{% response 'body', 'req_3e2d08d256a147428b896d7ced71979c', 'b64::JC4wLmlk::46b', 'never', 60 %}",
+      "name": "List Car by Id",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}"
+      },
+      "metaSortKey": -1681400129671,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_97884e176c794e4c8bab9751562206b7",
+      "parentId": "fld_c495094c1cfd4207914a88f1e4374bd5",
+      "modified": 1681760486591,
+      "created": 1681309866982,
+      "url": "{{ _.baseURL }}/user/profile",
+      "name": "List User ",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_1ba5a20bd47747268ab0c3f871c75446",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser2 }}"
+      },
+      "metaSortKey": -1681755517582,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_c495094c1cfd4207914a88f1e4374bd5",
+      "parentId": "fld_38db111ecf944e40a439e7435e611acf",
+      "modified": 1681760430029,
+      "created": 1681760430029,
+      "name": "List",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681760430029,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_fe0f4eeb9201433ab518101f70549113",
+      "parentId": "fld_c495094c1cfd4207914a88f1e4374bd5",
+      "modified": 1681760445094,
+      "created": 1681755517632,
+      "url": "{{ _.baseURL }}/user/cars",
+      "name": "List Cars by User",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.tokenUser1 }}"
+      },
+      "metaSortKey": -1681755517632,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6bb272a90cd746ce9ae269557251417b",
+      "parentId": "fld_0797605182c94963b39ddb2a7c9f336c",
+      "modified": 1681760447564,
+      "created": 1681309866977,
+      "url": "{{ _.baseURL }}/user",
+      "name": "Create User 1",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Neto\",\n  \"email\": \"neto@mail.com\",\n  \"telephone\": \"85988888888\",\n  \"password\": \"1234\",\n  \"cpf\": \"12345678910\",\n  \"description\": \"desenvolvedor\",\n  \"image_url\": \"url da imagem aqui\",\n  \"isSeller\": false,\n  \"birthdate\": \"1997-01-26T13:51:50.417-07:00\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1681309175182,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_0797605182c94963b39ddb2a7c9f336c",
+      "parentId": "fld_38db111ecf944e40a439e7435e611acf",
+      "modified": 1681760438636,
+      "created": 1681760438636,
+      "name": "Create",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1681760438636,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_ed1643aabc0846a0b000f1def851f710",
+      "parentId": "fld_0797605182c94963b39ddb2a7c9f336c",
+      "modified": 1681760449808,
+      "created": 1681310415753,
+      "url": "{{ _.baseURL }}/user",
+      "name": "Create User 2",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Matheus\",\n  \"email\": \"matheus@gmail.com\",\n  \"telephone\": \"85988888888\",\n  \"password\": \"123123\",\n  \"cpf\": \"12345678911\",\n  \"description\": \"desenvolvedor\",\n  \"image_url\": \"url da imagem aqui\",\n  \"isSeller\": false,\n  \"birthdate\": \"2000-01-26T13:51:50.417-07:00\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1681309175132,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_56831ee4b4e9bb281c19d5604e22627a99a92cd2",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679597517660,
+      "created": 1679421909310,
+      "name": "Base Environment",
+      "data": {
+        "baseUrl": "http://localhost:3001",
+        "token1": "{% response 'body', 'req_8d18e4e040324e66ab59e7c6b875c996', 'b64::JC50b2tlbg==::46b', 'never', 60 %}",
+        "token2": "{% response 'body', 'req_0a2f468cb6be4ec99e7299eb75cece10', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl",
+          "token1",
+          "token2"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1679421909310,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_56831ee4b4e9bb281c19d5604e22627a99a92cd2",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679421909315,
+      "created": 1679421909315,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_6473e93fd5344ae8b4d8be75284931b8",
+      "parentId": "wrk_1c91a9d200c442049dbe5be0fda140a7",
+      "modified": 1679421909274,
+      "created": 1679421909274,
+      "fileName": "Desafio Full Stack",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_dc65da59918d47e6af1c7d7f538eb10a",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098415359,
+      "created": 1680098365828,
+      "name": "Base Environment",
+      "data": {
+        "baseUrl": "http://localhost:3000",
+        "token1": "{% response 'body', 'req_8d18e4e040324e66ab59e7c6b875c996', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl",
+          "token1"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1679421909310,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_d745b3ceb76d495baaf59fe64d3d6f79",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098365837,
+      "created": 1680098365837,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_5f0e28effe904d928c736c627d15d81f",
+      "parentId": "wrk_5b9aa3c123d0434887604c0edb2b2a98",
+      "modified": 1680098365958,
+      "created": 1680098365845,
+      "fileName": "Desafio Full Stack",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_f6867657da5b099c7acbe903a35174795a71d508",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681308339552,
+      "created": 1681308339552,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1681308339552,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_f6867657da5b099c7acbe903a35174795a71d508",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681308339554,
+      "created": 1681308339554,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_caf337453f3f46a980463b90e41b1955",
+      "parentId": "wrk_3d9e4ad093664c5492c10db44284cda9",
+      "modified": 1681308339548,
+      "created": 1681308339548,
+      "fileName": "E-commerce Cars",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    },
+    {
+      "_id": "env_0a3ebcfffece408d9ccf14cf6f0eaf26",
+      "parentId": "env_f6867657da5b099c7acbe903a35174795a71d508",
+      "modified": 1681484588066,
+      "created": 1681309885105,
+      "name": "dev",
+      "data": {
+        "baseURL": "http://localhost:3000",
+        "emailUser1": "{% response 'body', 'req_6bb272a90cd746ce9ae269557251417b', 'b64::JC5lbWFpbA==::46b', 'never', 60 %}",
+        "emailUser2": "{% response 'body', 'req_ed1643aabc0846a0b000f1def851f710', 'b64::JC5lbWFpbA==::46b', 'never', 60 %}",
+        "tokenUser1": "{% response 'body', 'req_d7ba7c284f6944c29b300edcecd20813', 'b64::JC50b2tlbg==::46b', 'never', 60 %}",
+        "tokenUser2": "{% response 'body', 'req_2cac53e1b78048b68551bb414a9054c6', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseURL",
+          "emailUser1",
+          "emailUser2",
+          "tokenUser1",
+          "tokenUser2"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1681309885105,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_adfc2313861e4d4d9ab3cc910aa39de8",
+      "parentId": "env_f6867657da5b099c7acbe903a35174795a71d508",
+      "modified": 1681484569731,
+      "created": 1681309887274,
+      "name": "New Environment",
+      "data": {
+        "baseUrl": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "baseUrl"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1681309887274,
+      "_type": "environment"
+    }
+  ]
+}

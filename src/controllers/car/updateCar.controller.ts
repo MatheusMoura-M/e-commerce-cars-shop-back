@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { updateCarService } from "../../services/car/updateCar.service";
 import { ICarUpdate } from "../../interfaces/car.interfaces";
+import { updateCarService } from "../../services/car";
 
 export const updateCarController = async (req: Request, res: Response) => {
   const carUpdateData: ICarUpdate = req.body;

@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { IUserRequest } from "../interfaces/user.interfaces";
+import { IUserRequest } from "../../interfaces/user.interfaces";
 
 export const userCreateSchema: yup.SchemaOf<IUserRequest> = yup.object().shape({
   name: yup.string().required(),

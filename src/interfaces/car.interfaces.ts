@@ -1,5 +1,3 @@
-import { User } from "../entities/user.entity";
-
 export interface ICarRequest {
   brand: string;
   model: string;
@@ -12,6 +10,11 @@ export interface ICarRequest {
   description: string;
   published: boolean;
   cover_image: string;
+}
+
+export interface ICarResponse extends ICarRequest {
+  id: string;
+  is_good_price: boolean;
 }
 
 export interface ICarUpdate {
@@ -28,29 +31,13 @@ export interface ICarUpdate {
   cover_image?: string;
 }
 
-export interface ICarResponse {
-  id: string;
-  brand: string;
-  model: string;
-  year: string;
-  fuel: string;
-  km: number;
-  color: string;
-  price: number;
-  fipe: number;
-  description: string;
-  is_good_price: boolean;
-  published: boolean;
-  cover_image: string;
-}
-
 export interface ICarImageResponse {
-  id: string,
-  image_url: string,
-  car?: ICarResponse
+  id: string;
+  image_url: string;
+  car?: ICarResponse;
 }
 
-export interface IBrandResponse{
-  id: string,
-  name: string
+export interface IBrandResponse {
+  id: string;
+  name: string;
 }
