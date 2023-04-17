@@ -10,6 +10,7 @@ import {
 } from "../schemas/car.schemas";
 import { updateCarController } from "../controllers/car/updateCar.controller";
 import { deleteCarController } from "../controllers/car/deleteCar.controller";
+import { getEspecificCarController } from "../controllers/car/getEspecificCar.controller";
 import { createImageCarController } from "../controllers/car/carImage/createCar.controller";
 import { listCarImageController } from "../controllers/car/carImage/listCarImage.controller";
 import { deleteCarImageController } from "../controllers/car/carImage/deleteCarImage.controller";
@@ -26,6 +27,7 @@ carRoutes.post(
   createCarController
 );
 carRoutes.get("", validateTokenMiddleware, getCarsController);
+carRoutes.get("/:id", validateTokenMiddleware, getEspecificCarController);
 carRoutes.patch(
   "/:id",
   validateTokenMiddleware,
