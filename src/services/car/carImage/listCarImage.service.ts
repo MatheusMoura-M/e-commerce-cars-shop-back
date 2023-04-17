@@ -1,5 +1,5 @@
 import { AppError } from "../../../error/appError.error";
-import { ICarImageResponse } from "../../../interfaces/car.interfaces";
+import { ICarImageResponse } from "../../../interfaces/car";
 import { carRepo } from "../../../utils/repositories";
 
 export const listCarImageService = async (

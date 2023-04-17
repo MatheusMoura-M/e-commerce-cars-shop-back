@@ -1,4 +1,4 @@
-import { ICarResponse } from "../../interfaces/car.interfaces";
+import { ICarResponse } from "../../interfaces/car";
 import { allCarsResponseSchema } from "../../schemas/car";
 import { carRepo } from "../../utils/repositories";
 

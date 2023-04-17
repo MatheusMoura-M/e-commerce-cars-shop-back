@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { SchemaOf } from "yup";
-import { ICarRequest } from "../../interfaces/car.interfaces";
+import { ICarRequest } from "../../interfaces/car";
 
 export const carCreateSchema: SchemaOf<ICarRequest> = yup.object().shape({
   brand: yup.string().required(),

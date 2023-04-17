@@ -5,11 +5,15 @@ import {
   userProfileController,
 } from "../controllers/user";
 import { listUserCarsController } from "../controllers/car";
-import { userCreateSchema } from "../schemas/user";
+import { userCreateRequestSchema } from "../schemas/user";
 
 const userRoutes = Router();
 
-userRoutes.post("", bodyValidator(userCreateSchema), createUserController);
+userRoutes.post(
+  "",
+  bodyValidator(userCreateRequestSchema),
+  createUserController
+);
 userRoutes.get("/profile", validateTokenMiddleware, userProfileController);
 userRoutes.get("/cars", validateTokenMiddleware, listUserCarsController);
 

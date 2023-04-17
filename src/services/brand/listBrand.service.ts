@@ -1,4 +1,4 @@
-import { IBrandResponse } from "../../interfaces/car.interfaces";
+import { IBrandResponse } from "../../interfaces/car";
 import { brandRepo } from "../../utils/repositories";
 
 export const listBrandsService = async (): Promise<IBrandResponse[]> => {

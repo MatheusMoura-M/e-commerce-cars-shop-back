@@ -1,12 +1,16 @@
-import { IUserRequest } from "../../interfaces/user.interfaces";
+import { IUserRequest, IUserResponse } from "../../interfaces/user";
+import { userCreateReturnSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const createUserService = async (
   userData: IUserRequest
-): Promise<IUserRequest> => {
+): Promise<IUserResponse> => {
   const newUser = userRepo.create(userData);
-
   await userRepo.save(newUser);
 
-  return newUser;
+  const clientWithoutPassword = await userCreateReturnSchema.validate(newUser, {
+    stripUnknown: true,
+  });
+
+  return clientWithoutPassword;
 };

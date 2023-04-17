@@ -1,4 +1,6 @@
-import { IUserResponse } from "../../interfaces/user.interfaces";
+import { AppError } from "../../error/appError.error";
+import { IUserResponse } from "../../interfaces/user";
+import { userCreateReturnSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const userProfileService = async (
@@ -6,5 +8,9 @@ export const userProfileService = async (
 ): Promise<IUserResponse> => {
   const getUser = await userRepo.findOneBy({ id: id_user });
 
-  return getUser;
+  const clientWithoutPassword = await userCreateReturnSchema.validate(getUser, {
+    stripUnknown: true,
+  });
+
+  return clientWithoutPassword;
 };

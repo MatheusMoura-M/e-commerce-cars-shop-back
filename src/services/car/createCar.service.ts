@@ -1,5 +1,5 @@
-import { User } from "../../entities/user.entity";
-import { ICarRequest } from "../../interfaces/car.interfaces";
+import { User } from "../../entities";
+import { ICarRequest } from "../../interfaces/car";
 import { carResponseSchema } from "../../schemas/car";
 import { brandRepo, carRepo, userRepo } from "../../utils/repositories";
 
