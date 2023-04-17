@@ -1,18 +1,15 @@
 import { IUserLogin } from "../../interfaces/user.interfaces";
 import { compare } from "bcryptjs";
-import AppDataSource from "../../data-source";
-import { User } from "../../entities/user.entity";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { AppError } from "../../error/appError.error";
+import { userRepo } from "../../utils/repositories";
 
 export const loginService = async ({
   email,
   password,
 }: IUserLogin): Promise<{ token: string }> => {
-  const userRepository = AppDataSource.getRepository(User);
-
-  const user = await userRepository.findOneBy({
+  const user = await userRepo.findOneBy({
     email: email,
   });
 

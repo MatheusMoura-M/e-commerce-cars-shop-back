@@ -1,13 +1,10 @@
-import appDataSource from "../../data-source";
-import { User } from "../../entities";
 import { IUserResponse } from "../../interfaces/user.interfaces";
+import { userRepo } from "../../utils/repositories";
 
-export const userProfileService = async (id_user: string): Promise<IUserResponse> => {
+export const userProfileService = async (
+  id_user: string
+): Promise<IUserResponse> => {
+  const getUser = await userRepo.findOneBy({ id: id_user });
 
-    const userRepository = appDataSource.getRepository(User);
-
-    const getUser = await userRepository.findOneBy({id: id_user})
-
-    return getUser
-
-}
+  return getUser;
+};

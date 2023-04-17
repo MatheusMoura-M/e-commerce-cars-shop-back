@@ -1,16 +1,12 @@
-import AppDataSource from "../../data-source";
-import { Car } from "../../entities/car.entity";
-
 import { AppError } from "../../error/appError.error";
 import { especifcCarResponseSchema } from "../../schemas/car.schemas";
 import { ICarResponse } from "../../interfaces/car.interfaces";
+import { carRepo } from "../../utils/repositories";
 
 export const getEspecificCarService = async (
   carId: string
 ): Promise<ICarResponse> => {
-  const carRepository = AppDataSource.getRepository(Car);
-
-  const car = await carRepository.findOne({
+  const car = await carRepo.findOne({
     where: {
       id: carId,
     },

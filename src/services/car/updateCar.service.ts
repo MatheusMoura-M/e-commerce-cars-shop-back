@@ -1,9 +1,7 @@
-import AppDataSource from "../../data-source";
-import { Car } from "../../entities/car.entity";
-import { User } from "../../entities/user.entity";
 import { AppError } from "../../error/appError.error";
 import { ICarUpdate, ICarResponse } from "../../interfaces/car.interfaces";
 import { carResponseSerializer } from "../../schemas/car.schemas";
+import { carRepo, userRepo } from "../../utils/repositories";
 
 export const updateCarService = async (
   carUpdateData: ICarUpdate,
@@ -11,14 +9,11 @@ export const updateCarService = async (
   carId: string,
   isGoodPrice: boolean
 ): Promise<ICarResponse> => {
-  const userRepository = AppDataSource.getRepository(User);
-  const carRepository = AppDataSource.getRepository(Car);
-
-  const user = await userRepository.findOneBy({
+  const user = await userRepo.findOneBy({
     id: userId,
   });
 
-  const car = await carRepository.findOne({
+  const car = await carRepo.findOne({
     where: {
       id: carId,
     },
@@ -35,13 +30,13 @@ export const updateCarService = async (
     throw new AppError("You don't have permission to update this car", 403);
   }
 
-  const updatedCar = carRepository.create({
+  const updatedCar = carRepo.create({
     ...car,
     ...carUpdateData,
     is_good_price: isGoodPrice,
   });
 
-  await carRepository.save(updatedCar);
+  await carRepo.save(updatedCar);
 
   const returnCar = await carResponseSerializer.validate(updatedCar, {
     stripUnknown: true,
