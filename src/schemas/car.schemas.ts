@@ -51,3 +51,24 @@ export const carResponseSerializer: SchemaOf<ICarResponse> = yup
     published: yup.boolean().required(),
     cover_image: yup.string().required(),
   });
+
+export const especifcCarResponseSchema: SchemaOf<ICarResponse> = yup
+  .object()
+  .shape({
+    user: yup.object().shape({
+      id: yup.string().required(),
+    }),
+    cover_image: yup.string().required(),
+    published: yup.boolean().required(),
+    is_good_price: yup.boolean().required(),
+    description: yup.string().required(),
+    fipe: yup.number().required(),
+    price: yup.number().required(),
+    color: yup.string().required(),
+    km: yup.number().required(),
+    fuel: yup.string().required(),
+    year: yup.string().required(),
+    model: yup.string().required(),
+    brand: yup.string().required(),
+    id: yup.string().required(),
+  });

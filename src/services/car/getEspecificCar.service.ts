@@ -2,9 +2,12 @@ import AppDataSource from "../../data-source";
 import { Car } from "../../entities/car.entity";
 
 import { AppError } from "../../error/appError.error";
-import { ICar } from "../../interfaces/car.interfaces";
+import { especifcCarResponseSchema } from "../../schemas/car.schemas";
+import { ICarResponse } from "../../interfaces/car.interfaces";
 
-export const getEspecificCarService = async (carId: string): Promise<ICar> => {
+export const getEspecificCarService = async (
+  carId: string
+): Promise<ICarResponse> => {
   const carRepository = AppDataSource.getRepository(Car);
 
   const car = await carRepository.findOne({
@@ -20,5 +23,9 @@ export const getEspecificCarService = async (carId: string): Promise<ICar> => {
     throw new AppError("Car not found!", 404);
   }
 
-  return car;
+  const carValidated = await especifcCarResponseSchema.validate(car, {
+    stripUnknown: true,
+  });
+
+  return carValidated;
 };

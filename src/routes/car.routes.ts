@@ -26,7 +26,7 @@ carRoutes.post(
   verifyGoodDealMiddleware,
   createCarController
 );
-carRoutes.get("", validateTokenMiddleware, getCarsController);
+carRoutes.get("", getCarsController);
 carRoutes.get("/:id", validateTokenMiddleware, getEspecificCarController);
 carRoutes.patch(
   "/:id",
@@ -35,16 +35,29 @@ carRoutes.patch(
   verifyGoodDealMiddleware,
   updateCarController
 );
-carRoutes.delete("/:id", isAvalidUUID, validateTokenMiddleware, deleteCarController);
+carRoutes.delete(
+  "/:id",
+  isAvalidUUID,
+  validateTokenMiddleware,
+  deleteCarController
+);
 
+carRoutes.post(
+  "/image/:id",
+  isAvalidUUID,
+  validateTokenMiddleware,
+  createImageCarController
+);
 
-carRoutes.post("/image/:id", isAvalidUUID, validateTokenMiddleware, createImageCarController)
+carRoutes.get("/image/:id", isAvalidUUID, listCarImageController);
 
-carRoutes.get("/image/:id", isAvalidUUID, listCarImageController)
+carRoutes.delete(
+  "/image/:id",
+  isAvalidUUID,
+  validateTokenMiddleware,
+  deleteCarImageController
+);
 
-carRoutes.delete("/image/:id", isAvalidUUID, validateTokenMiddleware, deleteCarImageController)
-
-
-carRoutes.get("/brands", listBrandsController)
+carRoutes.get("/brands", listBrandsController);
 
 export default carRoutes;

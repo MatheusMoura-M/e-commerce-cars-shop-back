@@ -1,5 +1,3 @@
-import { User } from "../entities/user.entity";
-
 export interface ICarRequest {
   brand: string;
   model: string;
@@ -45,12 +43,12 @@ export interface ICarResponse {
 }
 
 export interface ICarImageResponse {
-  id: string,
-  image_url: string,
-  car?: ICarResponse
+  id: string;
+  image_url: string;
+  car?: ICarResponse;
 }
 
-export interface IBrandResponse{
-  id: string,
-  name: string
+export interface IBrandResponse {
+  id: string;
+  name: string;
 }
