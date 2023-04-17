@@ -1,5 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
 import { User } from "./user.entity";
+import { ImageCar } from "./image.entity";
+import { Brand } from "./brand.entity";
 
 @Entity("cars")
 export class Car {
@@ -44,4 +46,11 @@ export class Car {
 
   @ManyToOne(() => User, (user) => user.cars)
   user: User;
+
+  @OneToMany(() => ImageCar, image => image.car)
+  images: ImageCar[];
+
+  @ManyToOne(() => Brand, brand => brand.cars)
+  brand_car: Brand
+
 }

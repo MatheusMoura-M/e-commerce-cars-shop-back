@@ -3,6 +3,7 @@ declare global {
     interface Request {
       email: email;
       id: string;
+      isGoodDeal: boolean;
     }
   }
 }
