@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ICarUpdate } from "../../interfaces/car.interfaces";
+import { ICarUpdate } from "../../interfaces/car";
 import { updateCarService } from "../../services/car";
 
 export const updateCarController = async (req: Request, res: Response) => {

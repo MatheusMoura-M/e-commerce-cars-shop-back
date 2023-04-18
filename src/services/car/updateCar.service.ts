@@ -1,5 +1,5 @@
 import { AppError } from "../../error/appError.error";
-import { ICarUpdate, ICarResponse } from "../../interfaces/car.interfaces";
+import { ICarUpdate, ICarResponse } from "../../interfaces/car";
 import { carResponseSchema } from "../../schemas/car";
 import { carRepo, userRepo } from "../../utils/repositories";
 

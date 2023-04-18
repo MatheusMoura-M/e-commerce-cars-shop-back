@@ -1,15 +1,15 @@
-import { User } from "../../entities/user.entity";
-import { ICarRequest } from "../../interfaces/car.interfaces";
+import { User } from "../../entities";
+import { ICarRequest } from "../../interfaces/car";
 import { carResponseSchema } from "../../schemas/car";
 import { brandRepo, carRepo, userRepo } from "../../utils/repositories";
 
 export const createCarService = async (
   carData: ICarRequest,
-  email: string,
+  userEmail: string,
   isGoodPrice: boolean
 ) => {
   const userData = await userRepo.findOneBy({
-    email: email,
+    email: userEmail,
   });
 
   const getBrand = await brandRepo.findOneBy({ name: carData.brand });

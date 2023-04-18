@@ -1,12 +1,27 @@
-import { IUserRequest } from "../../interfaces/user.interfaces";
+import { AppError } from "../../error/appError.error";
+import { IUserRequest, IUserResponse } from "../../interfaces/user";
+import { userCreateReturnSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const createUserService = async (
   userData: IUserRequest
-): Promise<IUserRequest> => {
-  const newUser = userRepo.create(userData);
+): Promise<IUserResponse> => {
+  const user = await userRepo.findOne({
+    where: {
+      email: userData.email,
+    },
+  });
 
+  if (user) {
+    throw new AppError("E-mail already registered", 409);
+  }
+
+  const newUser = userRepo.create(userData);
   await userRepo.save(newUser);
 
-  return newUser;
+  const clientWithoutPassword = await userCreateReturnSchema.validate(newUser, {
+    stripUnknown: true,
+  });
+
+  return clientWithoutPassword;
 };

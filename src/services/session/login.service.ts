@@ -1,9 +1,9 @@
-import { IUserLogin } from "../../interfaces/user.interfaces";
 import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 import { AppError } from "../../error/appError.error";
 import { userRepo } from "../../utils/repositories";
+import { IUserLogin } from "../../interfaces/user";
 
 export const loginService = async ({
   email,

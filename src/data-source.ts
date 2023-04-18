@@ -21,6 +21,14 @@ const DataSourceSettings = (): DataSourceOptions => {
       entities,
       migrations,
     };
+  } else if (node_env === "test") {
+    return {
+      type: "sqlite",
+      database: ":memory:",
+      entities: [path.join(__dirname, "./entities/**.{js,ts}")],
+      migrations: [path.join(__dirname, "./migrations/**.{js,ts}")],
+      synchronize: true,
+    };
   }
 
   return {

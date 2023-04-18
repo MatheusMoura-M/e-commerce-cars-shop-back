@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { SchemaOf } from "yup";
-import { ICarResponse } from "../../interfaces/car.interfaces";
+import { ICarResponse } from "../../interfaces/car";
 
 export const specificCarResponseSchema: SchemaOf<ICarResponse> = yup
   .object()

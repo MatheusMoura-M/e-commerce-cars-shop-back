@@ -1,3 +1,4 @@
-import { userCreateSchema } from "./userCreate.schema";
+import { userCreateRequestSchema } from "./userCreateRequest.schema";
+import { userCreateReturnSchema } from "./userCreateResponse.schema";
 
-export { userCreateSchema };
+export { userCreateRequestSchema, userCreateReturnSchema };
