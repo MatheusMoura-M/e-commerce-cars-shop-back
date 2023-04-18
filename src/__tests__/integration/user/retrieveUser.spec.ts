@@ -77,42 +77,40 @@ describe("Retrieve User Tests", () => {
   //   expect(response.body).toHaveLength(expectResults.bodyToHaveLength);
   // });
 
-  // it("GET: /user/profile -> Should be able to retrieve an specific User by token", async () => {
-  //   const userPayload = mockedUserRequest;
+  it("GET: /user/profile -> Should be able to retrieve an specific User by token", async () => {
+    const newUser = await request(app).post("/user").send(mockedUserRequest);
 
-  //   const user = await request(app).post(baseUrl).send(userPayload);
+    expect(newUser.status).toBe(201);
 
-  //   expect(user.status).toBe(201);
+    const userLogged = await request(app).post("/login").send({
+      email: mockedUserRequest.email,
+      password: mockedUserRequest.password,
+    });
 
-  //   const userLogged = await request(app).post("/login").send({
-  //     email: userPayload.email,
-  //     password: userPayload.password,
-  //   });
+    const token = userLogged.body.token;
 
-  //   const token = userLogged.body.token;
+    const response = await request(app)
+      .get(baseUrl)
+      .set("Authorization", `Bearer ${token}`);
 
-  //   const response = await request(app)
-  //     .get(baseUrl)
-  //     .set("Authorization", `Bearer ${token}`);
+    const expectResults = {
+      status: 200,
+      bodyToEqual: expect.objectContaining({
+        id: expect.any(String),
+        email: expect.any(String),
+        name: expect.any(String),
+        cpf: expect.any(String),
+        telephone: expect.any(String),
+        description: expect.any(String),
+        image_url: expect.any(String),
+        isSeller: expect.any(Boolean),
+        birthdate: expect.any(String),
+      }),
+      bodyNotHaveProperty: "password",
+    };
 
-  //   const expectResults = {
-  //     status: 200,
-  //     bodyToEqual: expect.objectContaining({
-  //       id: expect.any(String),
-  //       email: expect.any(String),
-  //       name: expect.any(String),
-  //       cpf: expect.any(String),
-  //       telephone: expect.any(String),
-  //       description: expect.any(String),
-  //       image_url: expect.any(String),
-  //       isSeller: expect.any(Boolean),
-  //       birthdate: expect.any(Date),
-  //     }),
-  //     bodyNotHaveProperty: "password",
-  //   };
-
-  //   expect(response.status).toBe(expectResults.status);
-  //   expect(response.body).not.toHaveProperty(expectResults.bodyNotHaveProperty);
-  //   expect(response.body).toStrictEqual(expectResults.bodyToEqual);
-  // });
+    expect(response.status).toBe(expectResults.status);
+    expect(response.body).not.toHaveProperty(expectResults.bodyNotHaveProperty);
+    expect(response.body).toStrictEqual(expectResults.bodyToEqual);
+  });
 });

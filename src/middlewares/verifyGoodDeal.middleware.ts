@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { Car } from "../entities/car.entity";
 
 export const verifyGoodDealMiddleware = (
   req: Request,

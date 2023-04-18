@@ -13,21 +13,14 @@ import {
   mockedInvalidEmailSession,
   mockedInvalidPasswordSession,
 } from "./integration/session.mocks";
-// import {
-//   mockedBooksRequest,
-//   mockedInvalidBodyBooks,
-//   mockedListBooks,
-//   mockedBooksUpdateRequest,
-// } from "./integration/books.mocks";
-// import {
-//   mockedPagesBooksRequest,
-//   mockedInvalidBodyPagesBooks,
-// } from "./integration/pages.mocks";
-// import {
-//   mockedCategoryRequest,
-//   mockedInvalidCategoryRequest,
-//   mockedCategoryRequest2,
-// } from "./integration/categories.mocks";
+
+import {
+  mockedCarRequest,
+  mockedCarResponse,
+  mockedCarInvalidBodyRequest,
+  mockedCar2Request,
+  mockedCar2Response,
+} from "./integration/car.mocks";
 
 export {
   mockedUserRequest,
@@ -41,4 +34,9 @@ export {
   mockedUser2Request,
   mockedUser2Response,
   mockedUserResponseTest,
+  mockedCarRequest,
+  mockedCarResponse,
+  mockedCarInvalidBodyRequest,
+  mockedCar2Request,
+  mockedCar2Response,
 };

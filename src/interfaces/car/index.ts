@@ -17,6 +17,10 @@ export interface ICarResponse extends ICarRequest {
   is_good_price: boolean;
 }
 
+export interface ICarResponseTest extends ICarRequest {
+  is_good_price: boolean;
+}
+
 export interface ICarUpdate {
   brand?: string;
   model?: string;
