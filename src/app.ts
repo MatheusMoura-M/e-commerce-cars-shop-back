@@ -9,11 +9,12 @@ import carRoutes from "./routes/car.routes";
 const app = express();
 app.use(express.json());
 
+app.use(cors());
+
 app.use("/user", userRoutes);
 app.use("/login", sessionRoutes);
 app.use("/car", carRoutes);
 
 app.use(handleError);
-app.use(cors());
 
 export default app;
