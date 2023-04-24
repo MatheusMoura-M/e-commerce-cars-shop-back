@@ -2,15 +2,12 @@ import path from "path";
 import "reflect-metadata";
 import { DataSourceOptions, DataSource } from "typeorm";
 import "dotenv/config";
-import { User } from "./entities/user.entity";
-import { Car } from "./entities/car.entity";
-import { ImageCar } from "./entities/image.entity";
-import { Brand } from "./entities/brand.entity";
-import { initials1681742141998 } from "./migrations/1681742141998-initials";
+import { Brand, Car, ImageCar, User } from "./entities";
+import { initials1682358029844 } from "./migrations/1682358029844-initials";
 
 const DataSourceSettings = (): DataSourceOptions => {
   const entities = [User, Car, ImageCar, Brand];
-  const migrations = [initials1681742141998];
+  const migrations = [initials1682358029844];
 
   const node_env = process.env.NODE_ENV;
 
@@ -25,8 +22,8 @@ const DataSourceSettings = (): DataSourceOptions => {
     return {
       type: "sqlite",
       database: ":memory:",
-      entities: [path.join(__dirname, "./entities/**.{js,ts}")],
-      migrations: [path.join(__dirname, "./migrations/**.{js,ts}")],
+      entities,
+      migrations,
       synchronize: true,
     };
   }

@@ -1,6 +1,6 @@
 import { AppError } from "../../error/appError.error";
 import { IUserRequest, IUserResponse } from "../../interfaces/user";
-import { userCreateReturnSchema } from "../../schemas/user";
+import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const createUserService = async (
@@ -19,9 +19,10 @@ export const createUserService = async (
   const newUser = userRepo.create(userData);
   await userRepo.save(newUser);
 
-  const clientWithoutPassword = await userCreateReturnSchema.validate(newUser, {
-    stripUnknown: true,
-  });
+  const clientWithoutPassword =
+    await userCreateAndUpdateResponseSchema.validate(newUser, {
+      stripUnknown: true,
+    });
 
   return clientWithoutPassword;
 };
