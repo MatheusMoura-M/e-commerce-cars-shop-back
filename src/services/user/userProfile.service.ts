@@ -1,6 +1,6 @@
 import { AppError } from "../../error/appError.error";
 import { IUserResponse } from "../../interfaces/user";
-import { userCreateReturnSchema } from "../../schemas/user";
+import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const userProfileService = async (
@@ -8,9 +8,14 @@ export const userProfileService = async (
 ): Promise<IUserResponse> => {
   const getUser = await userRepo.findOneBy({ id: id_user });
 
-  const clientWithoutPassword = await userCreateReturnSchema.validate(getUser, {
-    stripUnknown: true,
-  });
+  if (!getUser) {
+    throw new AppError("User not found!", 404);
+  }
+
+  const clientWithoutPassword =
+    await userCreateAndUpdateResponseSchema.validate(getUser, {
+      stripUnknown: true,
+    });
 
   return clientWithoutPassword;
 };

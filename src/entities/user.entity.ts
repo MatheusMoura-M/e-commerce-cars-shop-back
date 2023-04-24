@@ -44,7 +44,7 @@ export class User {
   @Column()
   birthdate: Date;
 
-  @OneToMany(() => Car, (car) => car.user)
+  @OneToMany(() => Car, (car) => car.user, { cascade: true })
   cars: Car[];
 
   @BeforeUpdate()

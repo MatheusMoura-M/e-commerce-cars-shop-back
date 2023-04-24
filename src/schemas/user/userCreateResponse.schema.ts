@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { SchemaOf } from "yup";
 import { IUserResponse } from "../../interfaces/user";
 
-export const userCreateReturnSchema: SchemaOf<IUserResponse> = yup
+export const userCreateAndUpdateResponseSchema: SchemaOf<IUserResponse> = yup
   .object()
   .shape({
     image_url: yup.string().required(),
