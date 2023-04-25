@@ -1,13 +1,19 @@
 export interface IUserRequest {
-  name: string;
-  email: string;
-  telephone: string;
-  password: string;
-  cpf: string;
-  description: string;
   image_url: string;
   isSeller: boolean;
   birthdate: Date;
+  description: string;
+  telephone: string;
+  cpf: string;
+  email: string;
+  name: string;
+  state: string;
+  city: string;
+  street: string;
+  number: string;
+  zipcode: string;
+  complement: string
+  password: string;
 }
 
 export interface iOmitClientPassword extends Omit<IUserRequest, "password"> {}

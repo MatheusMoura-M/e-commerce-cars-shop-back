@@ -13,4 +13,10 @@ export const userCreateRequestSchema: yup.SchemaOf<IUserRequest> = yup
     cpf: yup.string().required(),
     email: yup.string().email().required(),
     name: yup.string().required(),
+    state: yup.string().required(),
+    city: yup.string().required(),
+    street: yup.string().required(),
+    number: yup.string().required(),
+    zipcode: yup.string().required(),
+    complement: yup.string().required()
   });

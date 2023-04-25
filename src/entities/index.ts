@@ -2,5 +2,6 @@ import { User } from "./user.entity";
 import { Car } from "./car.entity";
 import { ImageCar } from "./image.entity";
 import { Brand } from "./brand.entity";
+import { Address } from "./address.entiy";
 
-export { User, Car, Brand, ImageCar };
+export { User, Car, Brand, ImageCar, Address };
