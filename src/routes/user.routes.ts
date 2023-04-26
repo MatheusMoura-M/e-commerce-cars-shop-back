@@ -32,5 +32,6 @@ userRoutes.patch(
 
 userRoutes.delete("", validateTokenMiddleware, deleteUserController);
 userRoutes.post("/reset-password", resetPasswordEmailController);
+userRoutes.patch("/reset-password/:token", resetPasswordUserController);
 
 export default userRoutes;
