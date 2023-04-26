@@ -1,12 +1,13 @@
 import { createTransport } from "nodemailer";
 import { ISendEmailRequest } from "../../interfaces/user";
+import "dotenv/config";
 import { AppError } from "../../error/appError.error";
 import Mailgen from "mailgen";
 
 class EmailService {
   async sendEmail({ to, subject, text }: ISendEmailRequest) {
     const transporter = createTransport({
-      host: "smpt.gmail.com",
+      host: "smtp.gmail.com",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -39,7 +40,7 @@ class EmailService {
     const mailGenerator = new Mailgen({
       theme: "default",
       product: {
-        name: "M6 T13",
+        name: "E-commerce Cars Shop",
         link: `${protocol}://${host}`,
       },
     });
