@@ -5,9 +5,12 @@ import {
   BeforeUpdate,
   BeforeInsert,
   OneToMany,
+  OneToOne,
+  JoinColumn,
 } from "typeorm";
 import { hashSync } from "bcryptjs";
 import { Car } from "./car.entity";
+import { Address } from "./address.entiy";
 
 @Entity("users")
 export class User {
@@ -46,6 +49,10 @@ export class User {
 
   @OneToMany(() => Car, (car) => car.user, { cascade: true })
   cars: Car[];
+
+  @OneToOne(() => Address, (address) => address.id)
+  @JoinColumn()
+  address: Address;
 
   @BeforeUpdate()
   @BeforeInsert()
