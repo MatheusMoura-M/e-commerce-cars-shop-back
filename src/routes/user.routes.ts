@@ -3,6 +3,7 @@ import { bodyValidator, validateTokenMiddleware } from "../middlewares";
 import {
   createUserController,
   deleteUserController,
+  resetPasswordUserController,
   updateUserController,
   userProfileController,
 } from "../controllers/user";
@@ -11,7 +12,6 @@ import {
   userCreateRequestSchema,
   userUpdateRequestSchema,
 } from "../schemas/user";
-import { resetPasswordUserController } from "../controllers/user/resetPasswordUser.controller";
 
 const userRoutes = Router();
 
