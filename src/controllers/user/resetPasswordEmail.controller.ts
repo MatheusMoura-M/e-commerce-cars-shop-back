@@ -11,5 +11,7 @@ export const resetPasswordEmailController = async (
 
   await sendResetEmailPasswordService(email, protocol, host);
 
-  return res.json({ message: "token send" });
+  return res.json({
+    message: "Confira o seu email, foi enviado um link para mudança de senha!",
+  });
 };

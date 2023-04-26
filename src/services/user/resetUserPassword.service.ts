@@ -1,7 +1,8 @@
+import { hashSync } from "bcryptjs";
 import { AppError } from "../../error/appError.error";
 import { userRepo } from "../../utils/repositories";
 
-export const deleteUserService = async (
+export const resetUserPasswordService = async (
   password: string,
   resetToken: string
 ) => {
@@ -12,13 +13,13 @@ export const deleteUserService = async (
   });
 
   if (!userFound) {
-    throw new AppError("User not found!", 404);
+    throw new AppError("User not found or token expired!", 404);
   }
 
   const userUpdated = {
     ...userFound,
-    password: password,
-    resetToken: null,
+    password: hashSync(password, 10),
+    reset_token: null,
   };
 
   userRepo.save(userUpdated);

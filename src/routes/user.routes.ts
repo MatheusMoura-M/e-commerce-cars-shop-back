@@ -6,6 +6,7 @@ import {
   resetPasswordEmailController,
   updateUserController,
   userProfileController,
+  resetPasswordUserController,
 } from "../controllers/user";
 import { listUserCarsController } from "../controllers/car";
 import {
