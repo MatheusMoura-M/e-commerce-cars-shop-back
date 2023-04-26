@@ -11,6 +11,7 @@ import {
   userCreateRequestSchema,
   userUpdateRequestSchema,
 } from "../schemas/user";
+import { resetPasswordUserController } from "../controllers/user/resetPasswordUser.controller";
 
 const userRoutes = Router();
 
@@ -30,5 +31,6 @@ userRoutes.patch(
 );
 
 userRoutes.delete("", validateTokenMiddleware, deleteUserController);
+userRoutes.post("/reset-password", resetPasswordUserController);
 
 export default userRoutes;
