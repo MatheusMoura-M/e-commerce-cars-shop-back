@@ -12,7 +12,7 @@ export interface IUserRequest {
   street: string;
   number: string;
   zipcode: string;
-  complement: string
+  complement: string;
   password: string;
 }
 
@@ -37,4 +37,10 @@ export interface IUserUpdateRequest {
   password?: string;
   image_url?: string;
   isSeller?: boolean;
+}
+
+export interface ISendEmailRequest {
+  to: string;
+  subject: string;
+  text: string;
 }

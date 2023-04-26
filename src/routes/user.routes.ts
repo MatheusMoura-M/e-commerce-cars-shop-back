@@ -3,8 +3,10 @@ import { bodyValidator, validateTokenMiddleware } from "../middlewares";
 import {
   createUserController,
   deleteUserController,
+  resetPasswordEmailController,
   updateUserController,
   userProfileController,
+  resetPasswordUserController,
 } from "../controllers/user";
 import { listUserCarsController } from "../controllers/car";
 import {
@@ -30,5 +32,7 @@ userRoutes.patch(
 );
 
 userRoutes.delete("", validateTokenMiddleware, deleteUserController);
+userRoutes.post("/reset-password", resetPasswordEmailController);
+userRoutes.patch("/reset-password/:token", resetPasswordUserController);
 
 export default userRoutes;
