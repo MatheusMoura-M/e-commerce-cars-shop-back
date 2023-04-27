@@ -40,6 +40,15 @@ export const createUserService = async (
     complement,
   } = userData;
 
+  const newAddress = addressRepo.create({
+    state,
+    city,
+    street,
+    number,
+    zipcode,
+    complement,
+  });
+
   const newUser = userRepo.create({
     name,
     password,
@@ -50,16 +59,7 @@ export const createUserService = async (
     cpf,
     birthdate,
     telephone,
-  });
-
-  const newAddress = addressRepo.create({
-    state,
-    city,
-    street,
-    number,
-    zipcode,
-    complement,
-    user: newUser,
+    address: newAddress,
   });
 
   await userRepo.save(newUser);

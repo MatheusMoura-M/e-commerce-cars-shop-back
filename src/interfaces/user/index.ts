@@ -44,3 +44,22 @@ export interface ISendEmailRequest {
   subject: string;
   text: string;
 }
+
+export interface iAddressUpdateRequest {
+  street?: string;
+  zipcode?: string;
+  state?: string;
+  city?: string;
+  number?: string;
+  complement?: string;
+}
+
+export interface iAddressUpdateResponse {
+  id: string;
+  street: string;
+  zipcode: string;
+  state: string;
+  city: string;
+  number: string;
+  complement: string;
+}
