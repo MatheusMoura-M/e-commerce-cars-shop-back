@@ -11,7 +11,7 @@ export const userCreateAndUpdateResponseSchema: SchemaOf<IUserResponse> = yup
     street: yup.string().required(),
     city: yup.string().required(),
     state: yup.string().required(),
-    birthdate: yup.date().required(),
+    birthdate: yup.string().required(),
     isSeller: yup.boolean().required(),
     image_url: yup.string().required(),
     description: yup.string().required(),

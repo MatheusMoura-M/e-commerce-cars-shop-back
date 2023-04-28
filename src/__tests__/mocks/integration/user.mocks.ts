@@ -9,7 +9,7 @@ const mockedUserRequest: IUserRequest = {
   description: "desenvolvedor",
   image_url: "url da imagem aqui",
   isSeller: false,
-  birthdate: new Date(),
+  birthdate: "11/11/1111",
 };
 
 const mockedUserResponse: iOmitClientPassword = {
@@ -20,7 +20,7 @@ const mockedUserResponse: iOmitClientPassword = {
   description: "desenvolvedor",
   image_url: "url da imagem aqui",
   isSeller: false,
-  birthdate: new Date(),
+  birthdate: "11/11/1111",
 };
 
 const mockedUserResponseTest = {
@@ -42,7 +42,7 @@ const mockedUser2Request: IUserRequest = {
   description: "desenvolvedor2",
   image_url: "url da imagem2 aqui",
   isSeller: false,
-  birthdate: new Date(),
+  birthdate: "11/11/1111",
 };
 
 const mockedUser2Response: iOmitClientPassword = {
@@ -53,7 +53,7 @@ const mockedUser2Response: iOmitClientPassword = {
   description: "desenvolvedor2",
   image_url: "url da imagem2 aqui",
   isSeller: false,
-  birthdate: new Date(),
+  birthdate: "11/11/1111",
 };
 
 const mockedUserInvalidBodyRequest = {
