@@ -1,7 +1,7 @@
 import * as yup from "yup";
-import { IUserUpdateRequest } from "../../interfaces/user";
+import { iUserUpdateResponse } from "../../interfaces/user";
 
-export const userUpdateRequestSchema: yup.SchemaOf<IUserUpdateRequest> = yup
+export const userUpdateResponseSchema: yup.SchemaOf<iUserUpdateResponse> = yup
   .object()
   .shape({
     image_url: yup.string().notRequired(),
@@ -9,8 +9,8 @@ export const userUpdateRequestSchema: yup.SchemaOf<IUserUpdateRequest> = yup
     birthdate: yup.string().notRequired(),
     description: yup.string().notRequired(),
     telephone: yup.string().notRequired(),
-    password: yup.string().notRequired(),
     cpf: yup.string().notRequired(),
     email: yup.string().email().notRequired(),
     name: yup.string().notRequired(),
+    id: yup.string().notRequired(),
   });

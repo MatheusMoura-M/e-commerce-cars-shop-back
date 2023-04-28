@@ -6,6 +6,7 @@ export const resetUserPasswordService = async (
   password: string,
   resetToken: string
 ) => {
+  console.log(resetToken);
   const userFound = await userRepo.findOne({
     where: {
       reset_token: resetToken,

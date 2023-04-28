@@ -1,7 +1,7 @@
 export interface IUserRequest {
   image_url: string;
   isSeller: boolean;
-  birthdate: Date;
+  birthdate: string;
   description: string;
   telephone: string;
   cpf: string;
@@ -32,11 +32,16 @@ export interface IUserUpdateRequest {
   email?: string;
   cpf?: string;
   telephone?: string;
-  birthdate?: Date;
+  birthdate?: string;
   description?: string;
   password?: string;
   image_url?: string;
   isSeller?: boolean;
+}
+
+export interface iUserUpdateResponse
+  extends Omit<IUserUpdateRequest, "password"> {
+  id?: string;
 }
 
 export interface ISendEmailRequest {

@@ -1,12 +1,37 @@
 import { AppError } from "../../error/appError.error";
-import { IUserUpdateRequest, IUserResponse } from "../../interfaces/user";
-import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
+import { IUserUpdateRequest, iUserUpdateResponse } from "../../interfaces/user";
+import { userUpdateResponseSchema } from "../../schemas/user";
 import { userRepo } from "../../utils/repositories";
 
 export const updateUserService = async (
   id: string,
   payload: IUserUpdateRequest
-): Promise<IUserResponse> => {
+): Promise<iUserUpdateResponse> => {
+  if (payload.birthdate === "") {
+    delete payload.birthdate;
+  }
+  if (payload.name === "") {
+    delete payload.name;
+  }
+  if (payload.description === "") {
+    delete payload.description;
+  }
+  if (payload.cpf === "") {
+    delete payload.cpf;
+  }
+  if (payload.email === "") {
+    delete payload.email;
+  }
+  if (payload.image_url === "") {
+    delete payload.image_url;
+  }
+  if (payload.password === "") {
+    delete payload.password;
+  }
+  if (payload.telephone === "") {
+    delete payload.telephone;
+  }
+
   const userFound = await userRepo.findOneBy({
     id: id,
   });
@@ -22,12 +47,9 @@ export const updateUserService = async (
 
   await userRepo.save(userUpdated);
 
-  const userWithout = await userCreateAndUpdateResponseSchema.validate(
-    userUpdated,
-    {
-      stripUnknown: true,
-    }
-  );
+  const userWithout = await userUpdateResponseSchema.validate(userUpdated, {
+    stripUnknown: true,
+  });
 
   return userWithout;
 };

@@ -6,7 +6,7 @@ export const userCreateRequestSchema: yup.SchemaOf<IUserRequest> = yup
   .shape({
     image_url: yup.string().required(),
     isSeller: yup.boolean().required(),
-    birthdate: yup.date().required(),
+    birthdate: yup.string().required(),
     description: yup.string().required(),
     telephone: yup.string().required(),
     password: yup.string().required(),
@@ -18,5 +18,5 @@ export const userCreateRequestSchema: yup.SchemaOf<IUserRequest> = yup
     street: yup.string().required(),
     number: yup.string().required(),
     zipcode: yup.string().required(),
-    complement: yup.string().required()
+    complement: yup.string().required(),
   });

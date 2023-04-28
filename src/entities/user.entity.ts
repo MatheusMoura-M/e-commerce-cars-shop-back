@@ -45,7 +45,7 @@ export class User {
   isSeller: boolean;
 
   @Column()
-  birthdate: Date;
+  birthdate: string;
 
   @Column({ nullable: true })
   reset_token: string;
