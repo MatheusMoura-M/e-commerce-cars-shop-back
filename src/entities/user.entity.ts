@@ -53,7 +53,7 @@ export class User {
   @OneToMany(() => Car, (car) => car.user, { cascade: true })
   cars: Car[];
 
-  @OneToOne(() => Address, (address) => address.id)
+  @OneToOne(() => Address, (address) => address.id, { cascade: true })
   @JoinColumn()
   address: Address;
 

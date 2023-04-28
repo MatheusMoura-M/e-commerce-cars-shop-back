@@ -24,6 +24,6 @@ export class Address {
   @Column()
   complement: string;
 
-  @OneToOne(() => User, (user) => user.id)
+  @OneToOne(() => User, (user) => user.id, { onDelete: "CASCADE" })
   user: User;
 }
