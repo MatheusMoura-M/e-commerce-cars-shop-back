@@ -5,9 +5,7 @@ import {
   ManyToOne,
   OneToMany,
 } from "typeorm";
-import { User } from "./user.entity";
-import { ImageCar } from "./image.entity";
-import { Brand } from "./brand.entity";
+import { User, Comments, Brand, ImageCar } from "./index";
 
 @Entity("cars")
 export class Car {
@@ -52,6 +50,9 @@ export class Car {
 
   @ManyToOne(() => User, (user) => user.cars, { onDelete: "CASCADE" })
   user: User;
+
+  @OneToMany(() => Comments, (comments) => comments.cars, { cascade: true })
+  comments: Comments[];
 
   @OneToMany(() => ImageCar, (image) => image.car)
   images: ImageCar[];
