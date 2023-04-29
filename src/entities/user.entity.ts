@@ -7,10 +7,10 @@ import {
   OneToMany,
   OneToOne,
   JoinColumn,
+  ManyToMany,
 } from "typeorm";
 import { hashSync } from "bcryptjs";
-import { Car } from "./car.entity";
-import { Address } from "./address.entiy";
+import { Car, Comments, Address } from "./index";
 
 @Entity("users")
 export class User {
@@ -52,6 +52,9 @@ export class User {
 
   @OneToMany(() => Car, (car) => car.user, { cascade: true })
   cars: Car[];
+
+  @OneToMany(() => Comments, (comments) => comments.users, { cascade: true })
+  comments: Comments[];
 
   @OneToOne(() => Address, (address) => address.id, { cascade: true })
   @JoinColumn()
