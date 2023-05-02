@@ -4,6 +4,7 @@ import { updateUserController } from "./updateUser.controller";
 import { deleteUserController } from "./deleteUser.controller";
 import { resetPasswordEmailController } from "./resetPasswordEmail.controller";
 import { resetPasswordUserController } from "./resetPasswordUser.controller";
+import { getUserController } from "./getUser.controller";
 
 export {
   createUserController,
@@ -12,4 +13,5 @@ export {
   deleteUserController,
   resetPasswordEmailController,
   resetPasswordUserController,
+  getUserController,
 };
