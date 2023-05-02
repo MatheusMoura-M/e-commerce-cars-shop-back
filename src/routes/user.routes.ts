@@ -7,6 +7,7 @@ import {
   updateUserController,
   userProfileController,
   resetPasswordUserController,
+  getUserController,
 } from "../controllers/user";
 import { listUserCarsController } from "../controllers/car";
 import {
@@ -34,5 +35,7 @@ userRoutes.patch(
 userRoutes.delete("", validateTokenMiddleware, deleteUserController);
 userRoutes.post("/reset-password", resetPasswordEmailController);
 userRoutes.patch("/reset-password/:token", resetPasswordUserController);
+
+userRoutes.get("/:id", getUserController);
 
 export default userRoutes;

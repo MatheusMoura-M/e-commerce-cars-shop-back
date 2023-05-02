@@ -6,6 +6,7 @@ export const getCarsService = async (): Promise<ICarResponse[]> => {
   const cars = await carRepo.find({
     relations: {
       user: true,
+      images: true,
     },
   });
 
