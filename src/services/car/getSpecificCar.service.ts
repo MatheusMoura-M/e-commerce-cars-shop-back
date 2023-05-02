@@ -12,6 +12,7 @@ export const getSpecificCarService = async (
     },
     relations: {
       user: true,
+      images: true,
     },
   });
 

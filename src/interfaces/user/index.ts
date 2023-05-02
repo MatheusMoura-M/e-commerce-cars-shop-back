@@ -68,3 +68,16 @@ export interface iAddressUpdateResponse {
   number: string;
   complement: string;
 }
+
+export interface iGetUserResponse {
+  id: string;
+  name: string;
+  email: string;
+  cpf: string;
+  telephone: string;
+  birthdate: string;
+  description: string;
+  image_url: string;
+  isSeller: boolean;
+  address: iAddressUpdateResponse;
+}

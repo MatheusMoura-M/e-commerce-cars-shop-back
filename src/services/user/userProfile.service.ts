@@ -1,21 +1,23 @@
 import { AppError } from "../../error/appError.error";
-import { IUserResponse } from "../../interfaces/user";
-import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
+import { iGetUserResponse } from "../../interfaces/user";
+import { getSpecificUserSchema } from "../../schemas/user/getSpecificUser.schema";
 import { userRepo } from "../../utils/repositories";
 
 export const userProfileService = async (
   id_user: string
-): Promise<IUserResponse> => {
-  const getUser = await userRepo.findOneBy({ id: id_user });
+): Promise<iGetUserResponse> => {
+  const getUser = await userRepo.findOne({
+    where: { id: id_user },
+    relations: { address: true },
+  });
 
   if (!getUser) {
     throw new AppError("User not found!", 404);
   }
 
-  const clientWithoutPassword =
-    await userCreateAndUpdateResponseSchema.validate(getUser, {
-      stripUnknown: true,
-    });
+  const clientWithoutPassword = await getSpecificUserSchema.validate(getUser, {
+    stripUnknown: true,
+  });
 
   return clientWithoutPassword;
 };
