@@ -399,5 +399,65 @@ ________________________________________________________________________________
  
  _______________________________________________________________________________________________________________________________________________________________________
 
+### 💬: Rotas de Carros
+
+### :lock: Rotas que precisam de autenticação
+
+🟢 **POST - /message**
+
+* Rota para fazer comentário.
+
+**Request:**
+````
+{
+ message: string
+}`
+````
+	
+**Response:** 
+````
+ {
+ 
+   "user":{
+     "id": string
+   }
+   
+   cars:{
+     "id": string
+   }
+   
+   "message": string
+   createdAt: Date
+   updatedAt: string
+   
+ }
+
+````
+
+🟡 **PATCH - /message/:id-message**
+
+ - Atualiza comentário. 
+
+**Request:**
+
+````
+{
+  message: string
+}
+````
+
+**Response:** 
+````
+{
+  "message"?: string
+}
+````
+
+🔴 **DELETE - /message/:id-message**
+
+ - Exclui carro, mas apenas o usuário que criou pode excluir.
+ 
+ _______________________________________________________________________________________________________________________________________________________________________
+
 
 
