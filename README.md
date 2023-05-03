@@ -67,8 +67,6 @@ ________________________________________________________________________________
 
 ### :key: Rotas de Login
 
-:heavy_exclamation_mark: Para rodar os testes, é so dar o comando **"yarn test"** :heavy_exclamation_mark:
-
 * Rota para fazer o login.
 
 **Request:** 
