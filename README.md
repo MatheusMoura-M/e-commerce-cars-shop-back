@@ -36,7 +36,7 @@ Para criar uma base de dados, você precisará selecionar a opção <strong>SQL<
 2. **Abra o terminal e dê o comando "yarn" ou "npm i"** <br>
 3. **faça uma copia do arquivo <i>.env.example</i> e preencha com os dados do seu banco postgres.** <br>
 <div>
-  <img src="https://user-images.githubusercontent.com/101361395/235992234-4b9eafb2-e224-4a22-8a68-4751bf9f0021.png"/>
+  <img src="https://user-images.githubusercontent.com/101361395/236007588-a2075bc4-8ba8-4847-9b62-cb3eeba98fe5.png"/>
 </div>
 
 **O banco, se você não alterou, irá rodar na porta 5432 e no host localhost. Você irá preencher os demais campos com os dados da seu banco**
