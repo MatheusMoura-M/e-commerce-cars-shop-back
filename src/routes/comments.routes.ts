@@ -13,6 +13,6 @@ commentsRoutes.post(
   createCommentController
 );
 
-// commentsRoutes.get("", getCarsController);
+commentsRoutes.get("");
 
 export default commentsRoutes;
