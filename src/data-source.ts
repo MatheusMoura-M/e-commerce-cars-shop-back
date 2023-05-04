@@ -6,11 +6,11 @@ import { User } from "./entities/user.entity";
 import { Car } from "./entities/car.entity";
 import { ImageCar } from "./entities/image.entity";
 import { Brand } from "./entities/brand.entity";
-import { initials1681742141998 } from "./migrations/1681742141998-initials";
+import { InitialMigration1682005772085 } from "./migrations/1682005772085-InitialMigration";
 
 const DataSourceSettings = (): DataSourceOptions => {
   const entities = [User, Car, ImageCar, Brand];
-  const migrations = [initials1681742141998];
+  const migrations = [InitialMigration1682005772085];
 
   const node_env = process.env.NODE_ENV;
 
