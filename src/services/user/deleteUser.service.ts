@@ -1,5 +1,5 @@
 import { AppError } from "../../error/appError.error";
-import { carRepo, userRepo } from "../../utils/repositories";
+import { addressRepo, carRepo, userRepo } from "../../utils/repositories";
 
 export const deleteUserService = async (id: string) => {
   const userFound = await userRepo.findOne({
@@ -8,6 +8,7 @@ export const deleteUserService = async (id: string) => {
     },
     relations: {
       cars: true,
+      address: true,
     },
   });
 
@@ -15,10 +16,8 @@ export const deleteUserService = async (id: string) => {
     throw new AppError("User not found!", 404);
   }
 
-  // for await (let car of userFound.cars) {
-  //   await carRepo.delete(car.id);
-  // }
-
+  console.log("AAAAA", userFound);
+  // await addressRepo.delete(userFound.address.id);
   await userRepo.delete(id);
 
   return {};

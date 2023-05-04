@@ -56,8 +56,7 @@ export class User {
   @OneToMany(() => Comments, (comments) => comments.users, { cascade: true })
   comments: Comments[];
 
-  @OneToOne(() => Address, (address) => address.id, { cascade: true })
-  @JoinColumn()
+  @OneToOne(() => Address, (address) => address.id, { onDelete: "CASCADE" })
   address: Address;
 
   @BeforeUpdate()
