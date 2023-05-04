@@ -7,16 +7,20 @@ import Mailgen from "mailgen";
 class EmailService {
   async sendEmail({ to, subject, text }: ISendEmailRequest) {
     const transporter = createTransport({
-      host: "smtp.gmail.com",
+      host: "sandbox.smtp.mailtrap.io",
+      port: 2525,
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        pass: process.env.SMTP_PASS
       },
     });
 
+    // user: "0d7260dc81a657",
+    // pass: "f47a5c392fffce"
+
     await transporter
       .sendMail({
-        from: "milfonts2@gmail.com",
+        from: "cars.ecommerce@gmail.com",
         to,
         subject,
         html: text,

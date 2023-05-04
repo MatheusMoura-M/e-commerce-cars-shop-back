@@ -3,7 +3,10 @@ import { IUserRequest, IUserResponse } from "../../interfaces/user";
 import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
 import { addressRepo, userRepo } from "../../utils/repositories";
 
-export const createUserService = async (userData: IUserRequest) => {
+export const createUserService = async (
+  userData: IUserRequest
+): Promise<IUserResponse> => {
+
   const user = await userRepo.findOne({
     where: {
       email: userData.email,

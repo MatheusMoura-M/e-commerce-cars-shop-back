@@ -12,7 +12,8 @@ const bodyValidator =
 
       req.body = validator;
 
-      next();
+      next()
+      
     } catch (error) {
       return res.status(400).json({ error: error });
     }

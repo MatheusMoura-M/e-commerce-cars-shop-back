@@ -9,6 +9,7 @@ export const loginService = async ({
   email,
   password,
 }: IUserLogin): Promise<{ token: string }> => {
+  
   const user = await userRepo.findOneBy({
     email: email,
   });

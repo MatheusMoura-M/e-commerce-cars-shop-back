@@ -20,25 +20,25 @@ export class User {
   @Column({ length: 200 })
   name: string;
 
-  @Column({ length: 127, unique: true })
+  @Column({ length: 127 })
   email: string;
 
-  @Column({ length: 11, unique: true })
+  @Column()
   cpf: string;
 
-  @Column({ length: 120 })
+  @Column()
   password: string;
 
-  @Column({ length: 12 })
+  @Column()
   telephone: string;
 
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ length: 300 })
+  @Column()
   description: string;
 
-  @Column({ length: 300 })
+  @Column()
   image_url: string;
 
   @Column({ default: false })

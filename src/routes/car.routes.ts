@@ -30,7 +30,7 @@ carRoutes.post(
 
 carRoutes.get("", getCarsController);
 carRoutes.get("/brands", listBrandsController);
-carRoutes.get("/:id", validateTokenMiddleware, getSpecificCarController);
+carRoutes.get("/:id", getSpecificCarController);
 
 carRoutes.patch(
   "/:id",
