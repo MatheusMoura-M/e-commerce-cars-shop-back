@@ -1,12 +1,13 @@
-import { Comments } from "../../entities";
-import { ICommentRequest } from "../../interfaces/comments";
-import { commentResponseSchema } from "../../schemas/comments";
+import { AppError } from "../../error/appError.error";
+import { ICarResponse } from "../../interfaces/car";
+import { ICommentListResponse } from "../../interfaces/comments";
+import { commentListAllSchema } from "../../schemas/comments";
 import { carRepo, commentsRepo, userRepo } from "../../utils/repositories";
 
 export const listCommentService = async (
   idTo: string,
   idFrom: string
-): Promise<Comments[]> => {
+): Promise<ICommentListResponse[]> => {
   const userFound = await userRepo.findOneBy({
     id: idTo,
   });
@@ -24,5 +25,9 @@ export const listCommentService = async (
     },
   });
 
-  return comments;
+  const returnComment = await commentListAllSchema.validate(comments, {
+    stripUnknown: true,
+  });
+
+  return returnComment;
 };
