@@ -38,16 +38,6 @@ export const createUserService = async (userData: IUserRequest) => {
     complement,
   } = userData;
 
-  const newAddress = addressRepo.create({
-    state,
-    city,
-    street,
-    number,
-    zipcode,
-    complement,
-  });
-  await addressRepo.save(newAddress);
-
   const newUser = userRepo.create({
     name,
     password,
@@ -58,10 +48,21 @@ export const createUserService = async (userData: IUserRequest) => {
     cpf,
     birthdate,
     telephone,
-    address: newAddress,
   });
 
   await userRepo.save(newUser);
+
+  const newAddress = addressRepo.create({
+    state,
+    city,
+    street,
+    number,
+    zipcode,
+    complement,
+    user: newUser,
+  });
+
+  await addressRepo.save(newAddress);
 
   const clientWithoutPassword =
     await userCreateAndUpdateResponseSchema.validate(

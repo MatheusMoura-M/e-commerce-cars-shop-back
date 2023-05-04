@@ -57,7 +57,6 @@ export class User {
   comments: Comments[];
 
   @OneToOne(() => Address, (address) => address.id, { onDelete: "CASCADE" })
-  @JoinColumn()
   address: Address;
 
   @BeforeUpdate()
