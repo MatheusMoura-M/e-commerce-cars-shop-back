@@ -4,6 +4,12 @@ import { ICarResponse } from "../../interfaces/car";
 
 export const allCarsResponseSchema: SchemaOf<ICarResponse[]> = yup.array(
   yup.object().shape({
+    images: yup.array(
+      yup.object().shape({
+        id: yup.string().notRequired(),
+        image_url: yup.string().notRequired(),
+      })
+    ),
     user: yup.object().shape({
       id: yup.string().required(),
     }),

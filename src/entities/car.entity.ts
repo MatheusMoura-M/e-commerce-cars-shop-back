@@ -1,7 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from "typeorm";
-import { User } from "./user.entity";
-import { ImageCar } from "./image.entity";
-import { Brand } from "./brand.entity";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+} from "typeorm";
+import { User, Comments, Brand, ImageCar } from "./index";
 
 @Entity("cars")
 export class Car {
@@ -44,13 +48,15 @@ export class Car {
   @Column({ length: 300 })
   cover_image: string;
 
-  @ManyToOne(() => User, (user) => user.cars)
+  @ManyToOne(() => User, (user) => user.cars, { onDelete: "CASCADE" })
   user: User;
 
-  @OneToMany(() => ImageCar, image => image.car)
+  @OneToMany(() => Comments, (comments) => comments.cars, { cascade: true })
+  comments: Comments[];
+
+  @OneToMany(() => ImageCar, (image) => image.car)
   images: ImageCar[];
 
-  @ManyToOne(() => Brand, brand => brand.cars)
-  brand_car: Brand
-
+  @ManyToOne(() => Brand, (brand) => brand.cars)
+  brand_car: Brand;
 }

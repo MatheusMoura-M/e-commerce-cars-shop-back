@@ -5,9 +5,12 @@ import {
   BeforeUpdate,
   BeforeInsert,
   OneToMany,
+  OneToOne,
+  JoinColumn,
+  ManyToMany,
 } from "typeorm";
 import { hashSync } from "bcryptjs";
-import { Car } from "./car.entity";
+import { Car, Comments, Address } from "./index";
 
 @Entity("users")
 export class User {
@@ -42,10 +45,20 @@ export class User {
   isSeller: boolean;
 
   @Column()
-  birthdate: Date;
+  birthdate: string;
 
-  @OneToMany(() => Car, (car) => car.user)
+  @Column({ nullable: true })
+  reset_token: string;
+
+  @OneToMany(() => Car, (car) => car.user, { cascade: true })
   cars: Car[];
+
+  @OneToMany(() => Comments, (comments) => comments.users, { cascade: true })
+  comments: Comments[];
+
+  @OneToOne(() => Address, (address) => address.id, { cascade: true })
+  @JoinColumn()
+  address: Address;
 
   @BeforeUpdate()
   @BeforeInsert()

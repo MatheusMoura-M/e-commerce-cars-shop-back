@@ -1,7 +1,7 @@
 import { AppError } from "../../error/appError.error";
 import { IUserRequest, IUserResponse } from "../../interfaces/user";
-import { userCreateReturnSchema } from "../../schemas/user";
-import { userRepo } from "../../utils/repositories";
+import { userCreateAndUpdateResponseSchema } from "../../schemas/user";
+import { addressRepo, userRepo } from "../../utils/repositories";
 
 export const createUserService = async (
   userData: IUserRequest
@@ -16,12 +16,65 @@ export const createUserService = async (
     throw new AppError("E-mail already registered", 409);
   }
 
-  const newUser = userRepo.create(userData);
-  await userRepo.save(newUser);
+  const isCpf = userRepo.findOneBy({ cpf: userData.cpf });
 
-  const clientWithoutPassword = await userCreateReturnSchema.validate(newUser, {
-    stripUnknown: true,
+  if (!isCpf) {
+    throw new AppError("CPF already registered", 409);
+  }
+
+  const {
+    password,
+    name,
+    isSeller,
+    image_url,
+    email,
+    description,
+    cpf,
+    birthdate,
+    telephone,
+    state,
+    city,
+    street,
+    number,
+    zipcode,
+    complement,
+  } = userData;
+
+  const newAddress = addressRepo.create({
+    state,
+    city,
+    street,
+    number,
+    zipcode,
+    complement,
   });
+
+  const newUser = userRepo.create({
+    name,
+    password,
+    isSeller,
+    image_url,
+    email,
+    description,
+    cpf,
+    birthdate,
+    telephone,
+    address: newAddress,
+  });
+
+  await userRepo.save(newUser);
+  await addressRepo.save(newAddress);
+
+  const clientWithoutPassword =
+    await userCreateAndUpdateResponseSchema.validate(
+      {
+        id: newUser.id,
+        ...userData,
+      },
+      {
+        stripUnknown: true,
+      }
+    );
 
   return clientWithoutPassword;
 };

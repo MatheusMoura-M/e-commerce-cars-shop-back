@@ -62,7 +62,7 @@ describe("Retrieve User Tests", () => {
   //         description: expect.any(String),
   //         image_url: expect.any(String),
   //         isSeller: expect.any(Boolean),
-  //         birthdate: expect.any(Date),
+  //         birthdate: expect.any(string),
   //       }),
   //     ]),
   //     bodyNotToEqual: expect.arrayContaining([
