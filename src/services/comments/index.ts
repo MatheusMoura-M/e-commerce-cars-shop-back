@@ -1,3 +1,4 @@
 import { createCommentService } from "./createComment.service";
+import { listCommentService } from "./listComment.service";
 
-export { createCommentService };
+export { createCommentService, listCommentService };
