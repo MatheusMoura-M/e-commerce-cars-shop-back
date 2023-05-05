@@ -20,25 +20,33 @@ export class User {
   @Column({ length: 200 })
   name: string;
 
-  @Column({ length: 127, unique: true })
+  @Column({ length: 127 })
   email: string;
 
+<<<<<<< HEAD
   @Column({ length: 14, unique: true })
+=======
+  @Column()
+>>>>>>> 84db32b4a30a570bcc4719acbc854400b2965d3d
   cpf: string;
 
-  @Column({ length: 120 })
+  @Column()
   password: string;
 
+<<<<<<< HEAD
   @Column({ length: 15 })
+=======
+  @Column()
+>>>>>>> 84db32b4a30a570bcc4719acbc854400b2965d3d
   telephone: string;
 
   @Column({ default: true })
   isActive: boolean;
 
-  @Column({ length: 300 })
+  @Column()
   description: string;
 
-  @Column({ length: 300 })
+  @Column()
   image_url: string;
 
   @Column({ default: false })
@@ -56,8 +64,7 @@ export class User {
   @OneToMany(() => Comments, (comments) => comments.users, { cascade: true })
   comments: Comments[];
 
-  @OneToOne(() => Address, (address) => address.id, { cascade: true })
-  @JoinColumn()
+  @OneToOne(() => Address, (address) => address.id, { onDelete: "CASCADE" })
   address: Address;
 
   @BeforeUpdate()

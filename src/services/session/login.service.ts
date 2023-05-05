@@ -9,6 +9,7 @@ export const loginService = async ({
   email,
   password,
 }: IUserLogin): Promise<{ token: string }> => {
+  
   const user = await userRepo.findOneBy({
     email: email,
   });
@@ -31,7 +32,7 @@ export const loginService = async ({
     process.env.SECRET_KEY as string,
     {
       subject: String(user.id),
-      expiresIn: "24h",
+      expiresIn: process.env.EXPIRES_IN
     }
   );
 

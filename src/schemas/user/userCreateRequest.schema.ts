@@ -20,3 +20,4 @@ export const userCreateRequestSchema: yup.SchemaOf<IUserRequest> = yup
     zipcode: yup.string().required(),
     complement: yup.string().required(),
   });
+

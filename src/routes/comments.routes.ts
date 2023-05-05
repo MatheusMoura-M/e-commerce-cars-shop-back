@@ -2,7 +2,10 @@ import { Router } from "express";
 
 import { bodyValidator, validateTokenMiddleware } from "../middlewares";
 import { commentRequestSchema } from "../schemas/comments";
-import { createCommentController } from "../controllers/comments";
+import {
+  createCommentController,
+  listCommentController,
+} from "../controllers/comments";
 
 const commentsRoutes = Router();
 
@@ -13,6 +16,6 @@ commentsRoutes.post(
   createCommentController
 );
 
-// commentsRoutes.get("", getCarsController);
+commentsRoutes.get("/:id", listCommentController);
 
 export default commentsRoutes;

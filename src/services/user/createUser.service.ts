@@ -6,6 +6,7 @@ import { addressRepo, userRepo } from "../../utils/repositories";
 export const createUserService = async (
   userData: IUserRequest
 ): Promise<IUserResponse> => {
+
   const user = await userRepo.findOne({
     where: {
       email: userData.email,
@@ -16,9 +17,9 @@ export const createUserService = async (
     throw new AppError("E-mail already registered", 409);
   }
 
-  const isCpf = userRepo.findOneBy({ cpf: userData.cpf });
+  const isCpf = await userRepo.findOneBy({ cpf: userData.cpf });
 
-  if (!isCpf) {
+  if (isCpf) {
     throw new AppError("CPF already registered", 409);
   }
 
@@ -40,15 +41,6 @@ export const createUserService = async (
     complement,
   } = userData;
 
-  const newAddress = addressRepo.create({
-    state,
-    city,
-    street,
-    number,
-    zipcode,
-    complement,
-  });
-
   const newUser = userRepo.create({
     name,
     password,
@@ -59,10 +51,20 @@ export const createUserService = async (
     cpf,
     birthdate,
     telephone,
-    address: newAddress,
   });
 
   await userRepo.save(newUser);
+
+  const newAddress = addressRepo.create({
+    state,
+    city,
+    street,
+    number,
+    zipcode,
+    complement,
+    user: newUser,
+  });
+
   await addressRepo.save(newAddress);
 
   const clientWithoutPassword =

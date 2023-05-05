@@ -24,4 +24,5 @@ export const resetUserPasswordService = async (
   };
 
   userRepo.save(userUpdated);
+  
 };
