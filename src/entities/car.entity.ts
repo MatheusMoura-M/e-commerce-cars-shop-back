@@ -54,7 +54,7 @@ export class Car {
   @OneToMany(() => Comments, (comments) => comments.cars, { cascade: true })
   comments: Comments[];
 
-  @OneToMany(() => ImageCar, (image) => image.car)
+  @OneToMany(() => ImageCar, (image) => image.car, { cascade: true })
   images: ImageCar[];
 
   @ManyToOne(() => Brand, (brand) => brand.cars)
