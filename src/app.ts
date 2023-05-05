@@ -1,7 +1,7 @@
 import "express-async-errors";
 import express from "express";
 import { handleError } from "./error/appError.error";
-// import cors from "cors";
+import cors from "cors";
 import {
   addressRoutes,
   carRoutes,
@@ -13,7 +13,7 @@ import {
 const app = express();
 app.use(express.json());
 
-// app.use(cors());
+app.use(cors());
 
 app.use("/user", userRoutes);
 app.use("/login", sessionRoutes);

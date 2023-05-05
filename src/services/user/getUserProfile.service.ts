@@ -8,7 +8,6 @@ export const userProfileService = async (
 ): Promise<iGetUserResponse> => {
   const getUser = await userRepo.findOne({
     where: { id: id_user },
-    relations: { address: true },
   });
 
   if (!getUser) {
@@ -20,4 +19,5 @@ export const userProfileService = async (
   });
 
   return clientWithoutPassword;
+  
 };
