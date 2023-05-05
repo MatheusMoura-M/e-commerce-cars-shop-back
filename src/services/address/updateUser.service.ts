@@ -30,7 +30,6 @@ export const updateAddressService = async (
     delete payload.zipcode;
   }
 
-  console.log("oi", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   const userFound = await userRepo.findOne({
     where: {
       id: id,
