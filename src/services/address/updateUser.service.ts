@@ -30,12 +30,10 @@ export const updateAddressService = async (
     delete payload.zipcode;
   }
 
+  console.log("oi", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
   const userFound = await userRepo.findOne({
     where: {
       id: id,
-    },
-    relations: {
-      address: true,
     },
   });
 
@@ -44,7 +42,9 @@ export const updateAddressService = async (
   }
 
   const addressFound = await addressRepo.findOneBy({
-    id: userFound.address.id,
+    user: {
+      id: userFound.id,
+    },
   });
 
   const addressUpdated = {
