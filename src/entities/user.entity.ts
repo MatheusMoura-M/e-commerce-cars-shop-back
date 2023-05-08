@@ -23,21 +23,13 @@ export class User {
   @Column({ length: 127 })
   email: string;
 
-<<<<<<< HEAD
   @Column({ length: 14, unique: true })
-=======
-  @Column()
->>>>>>> 84db32b4a30a570bcc4719acbc854400b2965d3d
   cpf: string;
 
   @Column()
   password: string;
 
-<<<<<<< HEAD
   @Column({ length: 15 })
-=======
-  @Column()
->>>>>>> 84db32b4a30a570bcc4719acbc854400b2965d3d
   telephone: string;
 
   @Column({ default: true })
