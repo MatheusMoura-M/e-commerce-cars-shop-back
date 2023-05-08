@@ -34,9 +34,6 @@ export const updateAddressService = async (
     where: {
       id: id,
     },
-    relations: {
-      address: true,
-    },
   });
 
   if (!userFound) {
@@ -44,7 +41,9 @@ export const updateAddressService = async (
   }
 
   const addressFound = await addressRepo.findOneBy({
-    id: userFound.address.id,
+    user: {
+      id: userFound.id,
+    },
   });
 
   const addressUpdated = {

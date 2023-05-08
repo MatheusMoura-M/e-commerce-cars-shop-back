@@ -79,5 +79,4 @@ export interface iGetUserResponse {
   description: string;
   image_url: string;
   isSeller: boolean;
-  address: iAddressUpdateResponse;
 }

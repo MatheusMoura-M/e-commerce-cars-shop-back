@@ -7,6 +7,8 @@ export const createUserService = async (
   userData: IUserRequest
 ): Promise<IUserResponse> => {
 
+  console.log(userData, "======================================")
+
   const user = await userRepo.findOne({
     where: {
       email: userData.email,
