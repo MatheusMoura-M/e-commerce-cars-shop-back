@@ -4,6 +4,7 @@ import { bodyValidator, validateTokenMiddleware } from "../middlewares";
 import { commentRequestSchema } from "../schemas/comments";
 import {
   createCommentController,
+  deleteCommentController,
   editCommentController,
   listCommentController,
 } from "../controllers/comments";
@@ -23,6 +24,9 @@ commentsRoutes.patch(
   bodyValidator(commentRequestSchema),
   editCommentController
 );
+
 commentsRoutes.get("/:id", listCommentController);
+
+commentsRoutes.delete("/:id",validateTokenMiddleware, deleteCommentController)
 
 export default commentsRoutes;
