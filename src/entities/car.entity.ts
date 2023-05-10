@@ -30,8 +30,8 @@ export class Car {
   @Column({ length: 20 })
   color: string;
 
-  @Column({ type: "decimal", precision: 10 })
-  price: number;
+  @Column()
+  price: string;
 
   @Column({ type: "decimal", precision: 10 })
   fipe: number;

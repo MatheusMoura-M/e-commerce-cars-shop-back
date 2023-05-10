@@ -9,7 +9,7 @@ export const carUpdateSchema: SchemaOf<ICarUpdate> = yup.object().shape({
   fuel: yup.string().notRequired(),
   km: yup.number().notRequired(),
   color: yup.string().notRequired(),
-  price: yup.number().notRequired(),
+  price: yup.string().notRequired(),
   fipe: yup.number().notRequired(),
   description: yup.string().notRequired(),
   published: yup.boolean().notRequired(),

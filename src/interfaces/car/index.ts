@@ -5,7 +5,7 @@ export interface ICarRequest {
   fuel: string;
   km: number;
   color: string;
-  price: number;
+  price: string;
   fipe: number;
   description: string;
   published: boolean;
@@ -29,7 +29,7 @@ export interface ICarUpdate {
   fuel?: string;
   km?: number;
   color?: string;
-  price?: number;
+  price?: string;
   fipe?: number;
   description?: string;
   published?: boolean;
