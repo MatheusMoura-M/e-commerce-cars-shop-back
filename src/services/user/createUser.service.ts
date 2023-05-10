@@ -7,8 +7,6 @@ export const createUserService = async (
   userData: IUserRequest
 ): Promise<IUserResponse> => {
 
-  console.log(userData, "======================================")
-
   const user = await userRepo.findOne({
     where: {
       email: userData.email,
@@ -23,6 +21,14 @@ export const createUserService = async (
 
   if (isCpf) {
     throw new AppError("CPF already registered", 409);
+  }
+
+  let userUrl = ""
+
+  if(!userData.image_url){
+    userUrl = "https://encurtador.com.br/dmwCE"
+  }else{
+    userUrl = userData.image_url
   }
 
   const {
@@ -47,7 +53,7 @@ export const createUserService = async (
     name,
     password,
     isSeller,
-    image_url,
+    image_url: userUrl,
     email,
     description,
     cpf,
@@ -69,11 +75,13 @@ export const createUserService = async (
 
   await addressRepo.save(newAddress);
 
+  console.log(newUser, "========================")
+
   const clientWithoutPassword =
     await userCreateAndUpdateResponseSchema.validate(
       {
-        id: newUser.id,
-        ...userData,
+        ...newUser,
+        ...newAddress
       },
       {
         stripUnknown: true,

@@ -10,6 +10,7 @@ export interface ICarRequest {
   description: string;
   published: boolean;
   cover_image: string;
+  is_good_price: boolean
 }
 
 export interface ICarResponse extends ICarRequest {

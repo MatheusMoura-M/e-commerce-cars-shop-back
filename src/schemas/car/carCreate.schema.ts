@@ -13,5 +13,6 @@ export const carCreateSchema: SchemaOf<ICarRequest> = yup.object().shape({
   fipe: yup.number().required(),
   description: yup.string().required(),
   published: yup.boolean().required(),
-  cover_image: yup.string().required(),
+  cover_image: yup.string(),
+  is_good_price: yup.boolean().required()
 });

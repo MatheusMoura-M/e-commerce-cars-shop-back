@@ -12,6 +12,8 @@ export const allCarsResponseSchema: SchemaOf<ICarResponse[]> = yup.array(
     ),
     user: yup.object().shape({
       id: yup.string().required(),
+      name: yup.string().required(),
+      image_url: yup.string().required()
     }),
     cover_image: yup.string().required(),
     published: yup.boolean().required(),
