@@ -1,6 +1,6 @@
 import { AppError } from "../../error/appError.error";
-import { ICarUpdate, ICarResponse } from "../../interfaces/car";
-import { carResponseSchema } from "../../schemas/car";
+import { ICarUpdate, ICarUpdateResponse } from "../../interfaces/car";
+import { carResponseSchema, carUpdateSchema } from "../../schemas/car";
 import { carRepo, userRepo } from "../../utils/repositories";
 
 export const updateCarService = async (
@@ -8,7 +8,13 @@ export const updateCarService = async (
   userId: string,
   carId: string,
   isGoodPrice: boolean
-): Promise<ICarResponse> => {
+): Promise<ICarUpdateResponse> => {
+  for (let elem in carUpdateData) {
+    if (carUpdateData[elem] === "") {
+      delete carUpdateData[elem];
+    }
+  }
+
   const user = await userRepo.findOneBy({
     id: userId,
   });
@@ -38,7 +44,7 @@ export const updateCarService = async (
 
   await carRepo.save(updatedCar);
 
-  const returnCar = await carResponseSchema.validate(updatedCar, {
+  const returnCar = await carUpdateSchema.validate(updatedCar, {
     stripUnknown: true,
   });
 

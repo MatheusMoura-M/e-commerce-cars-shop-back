@@ -6,7 +6,7 @@ export const verifyGoodDealMiddleware = (
   next: NextFunction
 ) => {
   const car = req.body;
-  const diference = car.fipe - car.price;
+  const diference = car.fipe - Number(car.price);
   if (diference >= (car.fipe / 100) * 5) {
     req.isGoodDeal = true;
   } else {
