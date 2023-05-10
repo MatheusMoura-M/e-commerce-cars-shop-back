@@ -1,3 +1,5 @@
+import { iCarList } from "../car";
+
 export interface IUserRequest {
   image_url: string;
   isSeller: boolean;
@@ -79,4 +81,17 @@ export interface iGetUserResponse {
   description: string;
   image_url: string;
   isSeller: boolean;
+}
+
+export interface iListCarsSeller{
+  id: string;
+  name: string;
+  email: string;
+  cpf: string;
+  telephone: string;
+  birthdate: string;
+  description: string;
+  image_url: string;
+  isSeller: boolean;
+  cars: iCarList[]
 }

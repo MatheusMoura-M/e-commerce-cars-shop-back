@@ -9,8 +9,6 @@ export const createCarService = async (
   userId: string,
 ) => {
 
-  console.log(carData, "=============================")
-
   const userData = await userRepo.findOneBy({
     id: userId,
   });

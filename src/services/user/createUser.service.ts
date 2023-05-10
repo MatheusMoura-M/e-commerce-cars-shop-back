@@ -75,8 +75,6 @@ export const createUserService = async (
 
   await addressRepo.save(newAddress);
 
-  console.log(newUser, "========================")
-
   const clientWithoutPassword =
     await userCreateAndUpdateResponseSchema.validate(
       {

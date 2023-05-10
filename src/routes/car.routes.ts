@@ -7,6 +7,7 @@ import {
   getCarsController,
   getSpecificCarController,
   listCarImageController,
+  listSellerCarsController,
   updateCarController,
 } from "../controllers/car";
 import {
@@ -62,5 +63,7 @@ carRoutes.delete(
   validateTokenMiddleware,
   deleteCarImageController
 );
+
+carRoutes.get("/seller/:id", listSellerCarsController)
 
 export default carRoutes;

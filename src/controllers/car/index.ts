@@ -7,6 +7,7 @@ import { updateCarController } from "./updateCar.controller";
 import { createCarImageController } from "./carImage/createCarImage.controller";
 import { deleteCarImageController } from "./carImage/deleteCarImage.controller";
 import { listCarImageController } from "./carImage/listCarImage.controller";
+import { listSellerCarsController } from "./listSellerCars.controller";
 
 export {
   createCarController,
@@ -18,4 +19,5 @@ export {
   createCarImageController,
   deleteCarImageController,
   listCarImageController,
+  listSellerCarsController
 };
