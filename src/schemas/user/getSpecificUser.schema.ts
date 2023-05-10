@@ -12,7 +12,7 @@ export const getSpecificUserSchema: SchemaOf<iGetUserResponse> = yup
         is_good_price: yup.boolean().required(),
         description: yup.string().required(),
         fipe: yup.number().required(),
-        price: yup.number().required(),
+        price: yup.string().required(),
         color: yup.string().required(),
         km: yup.number().required(),
         fuel: yup.string().required(),

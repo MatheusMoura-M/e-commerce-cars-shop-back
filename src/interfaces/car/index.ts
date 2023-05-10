@@ -10,7 +10,7 @@ export interface ICarRequest {
   description: string;
   published: boolean;
   cover_image: string;
-  is_good_price: boolean
+  is_good_price: boolean;
 }
 
 export interface ICarResponse extends ICarRequest {
@@ -45,4 +45,8 @@ export interface ICarImageResponse {
 export interface IBrandResponse {
   id: string;
   name: string;
+}
+
+export interface ICarUpdateResponse extends ICarUpdate {
+  id: string;
 }
