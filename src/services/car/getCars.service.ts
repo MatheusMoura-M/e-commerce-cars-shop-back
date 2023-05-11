@@ -4,6 +4,7 @@ import { carRepo } from "../../utils/repositories";
 
 export const getCarsService = async (): Promise<ICarResponse[]> => {
   const cars = await carRepo.find({
+    where: { published: true },
     relations: {
       user: true,
       images: true,

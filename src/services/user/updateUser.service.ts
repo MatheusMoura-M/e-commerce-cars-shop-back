@@ -1,35 +1,16 @@
 import { AppError } from "../../error/appError.error";
 import { IUserUpdateRequest, iUserUpdateResponse } from "../../interfaces/user";
 import { userUpdateResponseSchema } from "../../schemas/user";
-import { userRepo } from "../../utils/repositories";
+import { carRepo, userRepo } from "../../utils/repositories";
 
 export const updateUserService = async (
   id: string,
   payload: IUserUpdateRequest
 ): Promise<iUserUpdateResponse> => {
-  if (payload.birthdate === "") {
-    delete payload.birthdate;
-  }
-  if (payload.name === "") {
-    delete payload.name;
-  }
-  if (payload.description === "") {
-    delete payload.description;
-  }
-  if (payload.cpf === "") {
-    delete payload.cpf;
-  }
-  if (payload.email === "") {
-    delete payload.email;
-  }
-  if (payload.image_url === "") {
-    delete payload.image_url;
-  }
-  if (payload.password === "") {
-    delete payload.password;
-  }
-  if (payload.telephone === "") {
-    delete payload.telephone;
+  for (let elem in payload) {
+    if (payload[elem] === "") {
+      delete payload[elem];
+    }
   }
 
   const userFound = await userRepo.findOneBy({
@@ -44,6 +25,32 @@ export const updateUserService = async (
     ...userFound,
     ...payload,
   };
+
+  const userCars = await carRepo.find({
+    where: {
+      user: {
+        id: userFound.id,
+      },
+    },
+  });
+
+  if (!userUpdated.isSeller) {
+    userCars.forEach(async (car) => {
+      const updatedCar = {
+        ...car,
+        published: false,
+      };
+      await carRepo.save(updatedCar);
+    });
+  } else {
+    userCars.forEach(async (car) => {
+      const updatedCar = {
+        ...car,
+        published: true,
+      };
+      await carRepo.save(updatedCar);
+    });
+  }
 
   await userRepo.save(userUpdated);
 

@@ -83,7 +83,7 @@ export interface iGetUserResponse {
   isSeller: boolean;
 }
 
-export interface iListCarsSeller{
+export interface iListCarsSeller {
   id: string;
   name: string;
   email: string;
@@ -93,5 +93,5 @@ export interface iListCarsSeller{
   description: string;
   image_url: string;
   isSeller: boolean;
-  cars: iCarList[]
+  cars: iCarList[];
 }
