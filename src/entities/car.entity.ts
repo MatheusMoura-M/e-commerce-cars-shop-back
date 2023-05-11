@@ -30,8 +30,8 @@ export class Car {
   @Column({ length: 20 })
   color: string;
 
-  @Column({ type: "decimal", precision: 10 })
-  price: number;
+  @Column()
+  price: string;
 
   @Column({ type: "decimal", precision: 10 })
   fipe: number;
@@ -54,7 +54,7 @@ export class Car {
   @OneToMany(() => Comments, (comments) => comments.cars, { cascade: true })
   comments: Comments[];
 
-  @OneToMany(() => ImageCar, (image) => image.car)
+  @OneToMany(() => ImageCar, (image) => image.car, { cascade: true })
   images: ImageCar[];
 
   @ManyToOne(() => Brand, (brand) => brand.cars)

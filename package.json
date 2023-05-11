@@ -17,6 +17,7 @@
     "babel": "^6.23.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
     "cors": "^2.8.5",
     "dotenv": "16.0.2",
     "express": "^4.18.2",

@@ -12,13 +12,15 @@ export const allCarsResponseSchema: SchemaOf<ICarResponse[]> = yup.array(
     ),
     user: yup.object().shape({
       id: yup.string().required(),
+      name: yup.string().required(),
+      image_url: yup.string().required()
     }),
     cover_image: yup.string().required(),
     published: yup.boolean().required(),
     is_good_price: yup.boolean().required(),
     description: yup.string().required(),
     fipe: yup.number().required(),
-    price: yup.number().required(),
+    price: yup.string().required(),
     color: yup.string().required(),
     km: yup.number().required(),
     fuel: yup.string().required(),

@@ -11,6 +11,7 @@ import {
 } from "typeorm";
 import { hashSync } from "bcryptjs";
 import { Car, Comments, Address } from "./index";
+import { Exclude } from "class-transformer";
 
 @Entity("users")
 export class User {
@@ -27,6 +28,7 @@ export class User {
   cpf: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()

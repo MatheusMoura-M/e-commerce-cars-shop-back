@@ -7,6 +7,7 @@ import { updateCarService } from "./updateCar.service";
 import { createCarImageService } from "./carImage/createCarImage.service";
 import { deleteCarImageService } from "./carImage/deleteCarImage.service";
 import { listCarImageService } from "./carImage/listCarImage.service";
+import { listSellerCarsService } from "./listSellerCars.service";
 
 export {
   createCarService,
@@ -18,4 +19,5 @@ export {
   createCarImageService,
   deleteCarImageService,
   listCarImageService,
+  listSellerCarsService
 };

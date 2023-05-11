@@ -4,7 +4,7 @@ import { IUserRequest } from "../../interfaces/user";
 export const userCreateRequestSchema: yup.SchemaOf<IUserRequest> = yup
   .object()
   .shape({
-    image_url: yup.string().required(),
+    image_url: yup.string().notRequired(),
     isSeller: yup.boolean().required(),
     birthdate: yup.string().required(),
     description: yup.string().required(),

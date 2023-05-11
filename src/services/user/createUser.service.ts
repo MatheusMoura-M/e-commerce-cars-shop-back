@@ -23,6 +23,14 @@ export const createUserService = async (
     throw new AppError("CPF already registered", 409);
   }
 
+  let userUrl = ""
+
+  if(!userData.image_url){
+    userUrl = "https://encurtador.com.br/dmwCE"
+  }else{
+    userUrl = userData.image_url
+  }
+
   const {
     password,
     name,
@@ -45,7 +53,7 @@ export const createUserService = async (
     name,
     password,
     isSeller,
-    image_url,
+    image_url: userUrl,
     email,
     description,
     cpf,
@@ -70,8 +78,8 @@ export const createUserService = async (
   const clientWithoutPassword =
     await userCreateAndUpdateResponseSchema.validate(
       {
-        id: newUser.id,
-        ...userData,
+        ...newUser,
+        ...newAddress
       },
       {
         stripUnknown: true,

@@ -3,12 +3,12 @@ import { iGetUserResponse } from "../../interfaces/user";
 import { getSpecificUserSchema } from "../../schemas/user/getSpecificUser.schema";
 import { userRepo } from "../../utils/repositories";
 
-export const getUserService = async (
-  userId: string
-): Promise<iGetUserResponse> => {
+export const getUserService = async (userId: string) => {
   const getUser = await userRepo.findOne({
     where: { id: userId },
-    relations: { address: true },
+    relations: {
+      cars: true,
+    },
   });
 
   if (!getUser) {
