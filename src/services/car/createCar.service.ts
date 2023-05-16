@@ -2,55 +2,103 @@ import { User } from "../../entities";
 import { AppError } from "../../error/appError.error";
 import { IBrandResponse, ICarRequest } from "../../interfaces/car";
 import { carResponseSchema } from "../../schemas/car";
-import { brandRepo, carRepo, userRepo } from "../../utils/repositories";
+import {
+  brandRepo,
+  carRepo,
+  userRepo,
+  imageRepo,
+} from "../../utils/repositories";
 
 export const createCarService = async (
   carData: ICarRequest,
-  userId: string,
+  userId: string
 ) => {
+  for (let elem in carData) {
+    if (carData[elem] === "") {
+      delete carData[elem];
+    }
+  }
 
   const userData = await userRepo.findOneBy({
     id: userId,
   });
 
-  if(!userData){
-    throw new AppError("user not found", 404)
+  if (!userData) {
+    throw new AppError("user not found", 404);
   }
 
   const getBrand = await brandRepo.findOneBy({ name: carData.brand });
 
-  let brand: IBrandResponse | null = getBrand
+  let brand: IBrandResponse | null = getBrand;
 
-  if(!brand){
+  if (!brand) {
+    const newBrand = brandRepo.create({ name: carData.brand });
+    await brandRepo.save(newBrand);
 
-    const newBrand = brandRepo.create({name: carData.brand})
-    await brandRepo.save(newBrand)
-
-    brand = newBrand
-
+    brand = newBrand;
   }
 
-  let carImage = ""
+  let carImage = carData.cover_image;
 
-  if(!carData.cover_image){
-    carImage = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwHeo1aZFE29ryE5ZNrOA1SvJ0Xe_wXt5FnqqvI68h1m10xjF7fRHRoWoO5H2fX7xPPw&usqp=CAU"
-  }else{
-    carImage = carData.cover_image
+  if (!carData.cover_image) {
+    carImage =
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcwHeo1aZFE29ryE5ZNrOA1SvJ0Xe_wXt5FnqqvI68h1m10xjF7fRHRoWoO5H2fX7xPPw&usqp=CAU";
   }
 
   const car = {
-    ...carData,
+    brand: carData.brand,
+    model: carData.model,
+    year: carData.year,
+    fuel: carData.fuel,
+    km: carData.km,
+    color: carData.color,
+    price: carData.price,
+    fipe: carData.fipe,
+    description: carData.description,
+    published: carData.published,
+    is_good_price: carData.is_good_price,
+    cover_image: carData.cover_image,
     brand_car: brand,
-    user: userData
+    user: userData,
   };
 
-  const newCar = carRepo.create({...car, cover_image: carImage});
+  const newCar = carRepo.create({ ...car, cover_image: carImage });
+
+  console.log("AAAAAAAAAAAAAAAAA", newCar);
+
   await carRepo.save(newCar);
 
-  const returnCar = await carResponseSchema.validate(newCar, {
+  const carCreated = await carRepo.findOneBy({
+    id: newCar.id,
+  });
+
+  if (!carCreated) {
+    throw new AppError("car not found", 404);
+  }
+
+  for (let elem in carData) {
+    if (elem.includes("images") && carData[elem] !== "") {
+      const newImageCar = imageRepo.create({
+        image_url: carData[elem],
+        car: carCreated,
+      });
+      await imageRepo.save(newImageCar);
+    }
+  }
+
+  const carWithImages = await carRepo.findOne({
+    where: {
+      id: newCar.id,
+    },
+    relations: {
+      images: true,
+      user: true,
+    },
+  });
+
+  const returnCar = await carResponseSchema.validate(carWithImages, {
     stripUnknown: true,
   });
 
   return returnCar;
-
 };

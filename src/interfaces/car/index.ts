@@ -9,13 +9,31 @@ export interface ICarRequest {
   fipe: number;
   description: string;
   published: boolean;
+  is_good_price: boolean;
   cover_image: string;
-  is_good_price: boolean
+  images_1?: string;
+  images_2?: string;
+  images_3?: string;
+  images_4?: string;
+  images_5?: string;
+  images_6?: string;
 }
 
-export interface ICarResponse extends ICarRequest {
+export interface ICarResponse {
   id: string;
+  brand: string;
+  model: string;
+  year: string;
+  fuel: string;
+  km: number;
+  color: string;
+  price: string;
+  fipe: number;
+  description: string;
+  published: boolean;
+  cover_image: string;
   is_good_price: boolean;
+  images: ICarImageResponse[];
 }
 
 export interface ICarResponseTest extends ICarRequest {
@@ -34,6 +52,12 @@ export interface ICarUpdate {
   description?: string;
   published?: boolean;
   cover_image?: string;
+  images_1?: string;
+  images_2?: string;
+  images_3?: string;
+  images_4?: string;
+  images_5?: string;
+  images_6?: string;
 }
 
 export interface iCarList {
@@ -62,6 +86,18 @@ export interface IBrandResponse {
   name: string;
 }
 
-export interface ICarUpdateResponse extends ICarUpdate {
+export interface ICarUpdateResponse {
   id: string;
+  brand: string;
+  model: string;
+  year: string;
+  fuel: string;
+  km: number;
+  color: string;
+  price: string;
+  fipe: number;
+  description: string;
+  published: boolean;
+  cover_image: string;
+  images: ICarImageResponse[];
 }

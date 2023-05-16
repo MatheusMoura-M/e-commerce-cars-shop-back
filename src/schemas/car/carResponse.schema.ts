@@ -6,6 +6,13 @@ export const carResponseSchema: SchemaOf<ICarResponse> = yup.object().shape({
   user: yup.object().shape({
     id: yup.string().required(),
   }),
+  images: yup.array(
+    yup.object().shape({
+      id: yup.string().notRequired(),
+      image_url: yup.string().notRequired(),
+      car: yup.object().shape({}).notRequired(),
+    })
+  ),
   cover_image: yup.string().required(),
   published: yup.boolean().required(),
   is_good_price: yup.boolean().required(),

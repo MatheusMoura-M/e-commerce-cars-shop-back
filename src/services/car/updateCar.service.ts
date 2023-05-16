@@ -1,7 +1,7 @@
 import { AppError } from "../../error/appError.error";
 import { ICarUpdate, ICarUpdateResponse } from "../../interfaces/car";
 import { carResponseSchema, carUpdateSchema } from "../../schemas/car";
-import { carRepo, userRepo } from "../../utils/repositories";
+import { carRepo, imageRepo, userRepo } from "../../utils/repositories";
 
 export const updateCarService = async (
   carUpdateData: ICarUpdate,
@@ -25,6 +25,7 @@ export const updateCarService = async (
     },
     relations: {
       user: true,
+      images: true,
     },
   });
 

@@ -9,6 +9,7 @@ export const specificCarResponseSchema: SchemaOf<ICarResponse> = yup
       yup.object().shape({
         id: yup.string().notRequired(),
         image_url: yup.string().notRequired(),
+        car: yup.object().shape({}).notRequired(),
       })
     ),
     user: yup.object().shape({

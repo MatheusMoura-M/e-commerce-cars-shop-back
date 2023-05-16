@@ -36,7 +36,6 @@ carRoutes.get("/:id", getSpecificCarController);
 carRoutes.patch(
   "/:id",
   validateTokenMiddleware,
-  bodyValidator(carUpdateSchema),
   verifyGoodDealMiddleware,
   updateCarController
 );
@@ -64,6 +63,6 @@ carRoutes.delete(
   deleteCarImageController
 );
 
-carRoutes.get("/seller/:id", listSellerCarsController)
+carRoutes.get("/seller/:id", listSellerCarsController);
 
 export default carRoutes;

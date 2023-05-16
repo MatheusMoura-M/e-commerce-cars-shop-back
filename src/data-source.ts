@@ -2,12 +2,11 @@ import "reflect-metadata";
 import "dotenv/config";
 import { DataSourceOptions, DataSource } from "typeorm";
 import { Brand, Car, ImageCar, User, Address, Comments } from "./entities";
-import { initials1683307991866 } from "./migrations/1683307991866-initials";
-import { carChangePriceType1683681232731 } from "./migrations/1683681232731-carChangePriceType";
+import { initials1684249246002 } from "./migrations/1684249246002-initials";
 
 const DataSourceSettings = (): DataSourceOptions => {
   const entities = [User, Car, ImageCar, Brand, Address, Comments];
-  const migrations = [initials1683307991866, carChangePriceType1683681232731];
+  const migrations = [initials1684249246002];
 
   const node_env = process.env.NODE_ENV;
 

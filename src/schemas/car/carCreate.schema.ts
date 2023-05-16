@@ -3,6 +3,12 @@ import { SchemaOf } from "yup";
 import { ICarRequest } from "../../interfaces/car";
 
 export const carCreateSchema: SchemaOf<ICarRequest> = yup.object().shape({
+  images_6: yup.string().notRequired(),
+  images_5: yup.string().notRequired(),
+  images_4: yup.string().notRequired(),
+  images_3: yup.string().notRequired(),
+  images_2: yup.string().notRequired(),
+  images_1: yup.string().notRequired(),
   brand: yup.string().required(),
   model: yup.string().required(),
   year: yup.string().required(),
@@ -14,5 +20,5 @@ export const carCreateSchema: SchemaOf<ICarRequest> = yup.object().shape({
   description: yup.string().required(),
   published: yup.boolean().required(),
   cover_image: yup.string(),
-  is_good_price: yup.boolean().required()
+  is_good_price: yup.boolean().required(),
 });
