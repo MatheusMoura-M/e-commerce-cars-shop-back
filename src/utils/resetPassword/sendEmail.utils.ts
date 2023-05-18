@@ -7,8 +7,7 @@ import Mailgen from "mailgen";
 class EmailService {
   async sendEmail({ to, subject, text }: ISendEmailRequest) {
     const transporter = createTransport({
-      host: "sandbox.smtp.mailtrap.io",
-      port: 2525,
+      host: "smtp.gmail.com",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
@@ -17,7 +16,7 @@ class EmailService {
 
     await transporter
       .sendMail({
-        from: "cars.ecommerce@gmail.com",
+        from: process.env.SMTP_USER,
         to,
         subject,
         html: text,
@@ -42,7 +41,6 @@ class EmailService {
       theme: "default",
       product: {
         name: "E-commerce Cars Shop",
-        // link: `${protocol}://localhost:5173`,
         link: `${protocol}://${host}`,
       },
     });
@@ -57,8 +55,7 @@ class EmailService {
           button: {
             color: "#5126EA",
             text: "Reset your password",
-            // link: `${protocol}://localhost:5173/resetpass/${resetToken}`,
-            link: `${protocol}://e-commerce-cars-shop-front.vercel.app//resetpass/${resetToken}`,
+            link: `${protocol}://e-commerce-cars-shop.vercel.app/resetpass/${resetToken}`,
           },
         },
         outro:
