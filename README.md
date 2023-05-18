@@ -6,7 +6,7 @@
 
 ### :one: Primeira etapa
 
-É preciso criar um banco de dados <strong><i>postgresql</i></strong>, onde todos os dados são amarzenados. Então no exemplo abaixo irei utilizar o <a href="https://dbeaver.io/download/">dbeaver</a>. Após abrir o <a href="https://dbeaver.io/download/">dbeaver</a>, você se deparará com está tela:
+É preciso criar um banco de dados <strong><i>postgresql</i></strong>, onde todos os dados são armazenados. Então no exemplo abaixo irei utilizar o <a href="https://dbeaver.io/download/">dbeaver</a>. Após abrir o <a href="https://dbeaver.io/download/">dbeaver</a>, você se deparará com está tela:
 
 <div>
   <img src="https://user-images.githubusercontent.com/101361395/226995412-664a41aa-b1dc-4fb0-b078-f78779523222.png"/>
@@ -32,7 +32,7 @@ Para criar uma base de dados, você precisará selecionar a opção <strong>SQL<
 
 ### :two: Segunda etapa
 
-1. **Fazer o clone do repositório neste link:** https://github.com/Leo-neves20/cadastro-de-clientes-express-M6-.git <br>
+1. **Fazer o clone do repositório neste link:** https://github.com/MatheusMoura-M/e-commerce-cars-shop-back <br>
 2. **Abra o terminal e dê o comando "yarn" ou "npm i"** <br>
 3. **faça uma copia do arquivo <i>.env.example</i> e preencha com os dados do seu banco postgres.** <br>
 <div>
@@ -470,4 +470,6 @@ ________________________________________________________________________________
  _______________________________________________________________________________________________________________________________________________________________________
 
 
+## Documentação do projeto
 
+[Documentação](https://github.com/MatheusMoura-M/e-commerce-cars-shop-front)
