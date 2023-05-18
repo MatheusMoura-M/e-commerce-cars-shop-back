@@ -8,7 +8,6 @@ export const resetPasswordEmailController = async (
   const { email } = req.body;
   const { protocol } = req;
   const host = req.get("host");
-  console.log(host);
 
   await sendResetEmailPasswordService(email, protocol, host);
 

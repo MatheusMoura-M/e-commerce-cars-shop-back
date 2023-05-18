@@ -11,12 +11,9 @@ class EmailService {
       port: 2525,
       auth: {
         user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS
+        pass: process.env.SMTP_PASS,
       },
     });
-
-    // user: "0d7260dc81a657",
-    // pass: "f47a5c392fffce"
 
     await transporter
       .sendMail({
@@ -45,6 +42,7 @@ class EmailService {
       theme: "default",
       product: {
         name: "E-commerce Cars Shop",
+        // link: `${protocol}://localhost:5173`,
         link: `${protocol}://${host}`,
       },
     });
@@ -59,7 +57,8 @@ class EmailService {
           button: {
             color: "#5126EA",
             text: "Reset your password",
-            link: `${protocol}://${host}/resetpass/${resetToken}`,
+            // link: `${protocol}://localhost:5173/resetpass/${resetToken}`,
+            link: `${protocol}://e-commerce-cars-shop-front.vercel.app//resetpass/${resetToken}`,
           },
         },
         outro:
