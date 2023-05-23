@@ -27,6 +27,5 @@ export const deleteCarService = async (
   }
 
   await carRepo.delete(car.id);
-
   return {};
 };

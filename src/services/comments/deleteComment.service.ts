@@ -1,23 +1,22 @@
-import { AppError } from "../../error/appError.error"
-import { commentsRepo } from "../../utils/repositories"
+import { AppError } from "../../error/appError.error";
+import { commentsRepo } from "../../utils/repositories";
 
 export const deleteCommentService = async (
-    idComment: string, 
-    userId: string, 
+  idComment: string,
+  userId: string
 ) => {
-
-    const repo = await commentsRepo.createQueryBuilder("comments")
+  const repo = await commentsRepo
+    .createQueryBuilder("comments")
     .innerJoinAndSelect("comments.users", "users")
-    .where("comments.id = :idComment", {idComment: idComment})
-    .andWhere("users.id = :idUser", {idUser: userId})
-    .getOne()
+    .where("comments.id = :idComment", { idComment: idComment })
+    .andWhere("users.id = :idUser", { idUser: userId })
+    .getOne();
 
-    if(!repo){
-        throw new AppError("user must be the owner to delete this comment")
-    }
+  if (!repo) {
+    throw new AppError("User must be the owner to delete this comment");
+  }
 
-    await commentsRepo.delete({id: repo.id})
+  await commentsRepo.delete({ id: repo.id });
 
-    return {}
-
-}
+  return {};
+};

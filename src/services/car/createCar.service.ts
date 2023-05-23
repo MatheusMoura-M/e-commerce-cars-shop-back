@@ -11,7 +11,8 @@ import {
 
 export const createCarService = async (
   carData: ICarRequest,
-  userId: string
+  userId: string,
+  isGoodPrice: boolean
 ) => {
   for (let elem in carData) {
     if (carData[elem] === "") {
@@ -24,11 +25,13 @@ export const createCarService = async (
   });
 
   if (!userData) {
-    throw new AppError("user not found", 404);
+    throw new AppError("User not found", 404);
+  }
+  if (!userData.isSeller) {
+    throw new AppError("User is not a seller", 409);
   }
 
   const getBrand = await brandRepo.findOneBy({ name: carData.brand });
-
   let brand: IBrandResponse | null = getBrand;
 
   if (!brand) {
@@ -56,16 +59,13 @@ export const createCarService = async (
     fipe: carData.fipe,
     description: carData.description,
     published: carData.published,
-    is_good_price: carData.is_good_price,
     cover_image: carData.cover_image,
     brand_car: brand,
     user: userData,
+    is_good_price: isGoodPrice,
   };
 
   const newCar = carRepo.create({ ...car, cover_image: carImage });
-
-  console.log("AAAAAAAAAAAAAAAAA", newCar);
-
   await carRepo.save(newCar);
 
   const carCreated = await carRepo.findOneBy({
@@ -73,7 +73,7 @@ export const createCarService = async (
   });
 
   if (!carCreated) {
-    throw new AppError("car not found", 404);
+    throw new AppError("Car not found", 404);
   }
 
   for (let elem in carData) {

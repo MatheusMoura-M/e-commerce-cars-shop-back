@@ -5,7 +5,7 @@ export const listSellerCarsService = async (idSeller: string) => {
   const isUser = userRepo.findOneBy({ id: idSeller });
 
   if (!isUser) {
-    throw new AppError("user not found", 404);
+    throw new AppError("User not found", 404);
   }
 
   const res = await userRepo.findOne({
