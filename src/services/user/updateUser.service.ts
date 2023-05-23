@@ -35,24 +35,29 @@ export const updateUserService = async (
   });
 
   if (!userUpdated.isSeller) {
-    userCars.forEach(async (car) => {
-      const updatedCar = {
-        ...car,
-        published: false,
-      };
-      await carRepo.save(updatedCar);
-    });
-  } else {
-    userCars.forEach(async (car) => {
-      const updatedCar = {
-        ...car,
-        published: true,
-      };
-      await carRepo.save(updatedCar);
-    });
+    for await (let car of userCars) {
+      await carRepo.delete(car.id);
+    }
   }
-
   await userRepo.save(userUpdated);
+
+  // if (!userUpdated.isSeller) {
+  //   userCars.forEach(async (car) => {
+  //     const updatedCar = {
+  //       ...car,
+  //       published: false,
+  //     };
+  //     await carRepo.save(updatedCar);
+  //   });
+  // } else {
+  //   userCars.forEach(async (car) => {
+  //     const updatedCar = {
+  //       ...car,
+  //       published: true,
+  //     };
+  //     await carRepo.save(updatedCar);
+  //   });
+  // }
 
   const userWithout = await userUpdateResponseSchema.validate(userUpdated, {
     stripUnknown: true,

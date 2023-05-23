@@ -13,7 +13,7 @@ export const editCommentService = async (
     relations: { cars: true, users: true },
   });
   if (commentFound.users.id !== idUser) {
-    throw new AppError("user is not authorized", 403);
+    throw new AppError("User is not authorized", 403);
   }
 
   const newComment = commentsRepo.create({

@@ -16,8 +16,6 @@ export const deleteUserService = async (id: string) => {
     throw new AppError("User not found!", 404);
   }
 
-  console.log("AAAAA", userFound);
-  // await addressRepo.delete(userFound.address.id);
   await userRepo.delete(id);
 
   return {};

@@ -9,7 +9,6 @@ export interface ICarRequest {
   fipe: number;
   description: string;
   published: boolean;
-  is_good_price: boolean;
   cover_image: string;
   images_1?: string;
   images_2?: string;
