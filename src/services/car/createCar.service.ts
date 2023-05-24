@@ -1,4 +1,3 @@
-import { User } from "../../entities";
 import { AppError } from "../../error/appError.error";
 import { IBrandResponse, ICarRequest } from "../../interfaces/car";
 import { carResponseSchema } from "../../schemas/car";
@@ -27,6 +26,7 @@ export const createCarService = async (
   if (!userData) {
     throw new AppError("User not found", 404);
   }
+
   if (!userData.isSeller) {
     throw new AppError("User is not a seller", 409);
   }
