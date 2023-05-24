@@ -7,10 +7,7 @@ export const verifyGoodDealMiddleware = (
 ) => {
   const car = req.body;
   if (car.price) {
-    const removePoint = car.price.replaceAll(".", "");
-    const formatNumber = parseFloat(removePoint);
-    const formatString = formatNumber.toString();
-    car.price = formatString;
+    car.price = parseFloat(car.price.replaceAll(".", "")).toString();
   }
   const diference = car.fipe - Number(car.price);
 
