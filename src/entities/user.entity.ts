@@ -53,6 +53,7 @@ export class User {
   reset_token: string;
 
   @OneToMany(() => Car, (car) => car.user, { cascade: true })
+  @JoinColumn()
   cars: Car[];
 
   @OneToMany(() => Comments, (comments) => comments.users, { cascade: true })

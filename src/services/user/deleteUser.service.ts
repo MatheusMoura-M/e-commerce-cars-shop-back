@@ -1,14 +1,10 @@
 import { AppError } from "../../error/appError.error";
-import { addressRepo, carRepo, userRepo } from "../../utils/repositories";
+import { userRepo } from "../../utils/repositories";
 
 export const deleteUserService = async (id: string) => {
   const userFound = await userRepo.findOne({
     where: {
       id: id,
-    },
-    relations: {
-      cars: true,
-      address: true,
     },
   });
 

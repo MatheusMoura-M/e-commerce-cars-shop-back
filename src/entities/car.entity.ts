@@ -4,6 +4,7 @@ import {
   Column,
   ManyToOne,
   OneToMany,
+  JoinColumn,
 } from "typeorm";
 import { User, Comments, Brand, ImageCar } from "./index";
 
