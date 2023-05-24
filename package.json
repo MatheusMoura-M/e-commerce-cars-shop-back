@@ -12,6 +12,9 @@
     "start": "node dist/src/server.js",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
+  "engines": {
+    "node": ">=18.16.0 <19"
+  },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "babel": "^6.23.0",
