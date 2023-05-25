@@ -55,7 +55,8 @@ class EmailService {
           button: {
             color: "#5126EA",
             text: "Reset your password",
-            link: `${protocol}://e-commerce-cars-shop.vercel.app/resetpass/${resetToken}`,
+            // link: `${protocol}://e-commerce-cars-shop.vercel.app/resetpass/${resetToken}`,
+            link: `${protocol}://${host}/resetpass/${resetToken}`,
           },
         },
         outro:
