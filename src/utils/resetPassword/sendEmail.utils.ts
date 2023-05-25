@@ -44,7 +44,6 @@ class EmailService {
         link: `${protocol}://${host}`,
       },
     });
-    console.log(protocol, host);
 
     const email = {
       body: {
@@ -56,14 +55,16 @@ class EmailService {
           button: {
             color: "#5126EA",
             text: "Reset your password",
-            link: `${protocol}://e-commerce-cars-shop.vercel.app/reset-pass/${resetToken}`,
-            // link: `${protocol}://${host}/reset-pass/${resetToken}`,
+            // link: `${protocol}://localhost:5173/resetpass/${resetToken}`,
+            link: `${protocol}://e-commerce-cars-shop.vercel.app/resetpass/${resetToken}`,
           },
         },
         outro:
           "If you did not request a password reset, no further action is required on your part.",
       },
     };
+
+    console.log(email.body.action.button, "EEEEMAILLL");
 
     const emailBody = mailGenerator.generate(email);
 
