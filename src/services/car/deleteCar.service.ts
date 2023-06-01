@@ -9,6 +9,10 @@ export const deleteCarService = async (
     id: userId,
   });
 
+  if (!user) {
+    throw new AppError("User not found!", 404);
+  }
+
   const car = await carRepo.findOne({
     where: {
       id: carId,
